@@ -29,9 +29,7 @@ export default function Home() {
             />
           </div>
           <div className="flex h-full w-auto justify-right p-6">
-            <button className="text-4xl" onClick={console.log("I'm clicked!")}>
-              Contact
-            </button>
+            <button className="text-4xl">Contact</button>
           </div>
         </div>
       </div>
