@@ -8,6 +8,22 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        burgerspintop: {
+          "0%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(40px)",
+          },
+          "100%": {
+            transform: "translateY(0px)",
+          },
+        },
+      },
+      animation: {
+        burgerspintop: "burgerspintop 2s ease infinite",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

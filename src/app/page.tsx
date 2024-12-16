@@ -6,6 +6,18 @@ export default function Home() {
       <div className="w-full h-24 bg-white">
         <div className="flex h-full items-center justify-between w-full">
           <div className="flex h-full w-auto justify-left p-4 gap-10">
+            <svg
+              className="lg:hidden"
+              width="60"
+              height="60"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                className="animate-burgerspintop"
+                d="M 10 10 H 50 V 15 H 10 L 10 15"
+              />
+              <path d="M 10 30 H 50 V 35 H 10 L 10 35" />
+            </svg>
             <Image
               src="/logos/Facebook_Logo_Primary.png"
               alt="fb_logo"
