@@ -11,13 +11,13 @@ export default {
       keyframes: {
         burgerspintop: {
           "0%": {
-            transform: "translateY(0px)",
+            transform: "rotate(0deg) translateY(0px) translateX(0px)",
           },
           "50%": {
-            transform: "translateY(40px)",
+            transform: "rotate(45deg) translateY(-15px) translateX(15px)",
           },
           "100%": {
-            transform: "translateY(0px)",
+            transform: "rotate(0deg)  translateY(0px) translateX(0px)",
           },
         },
       },
