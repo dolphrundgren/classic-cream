@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 
-export default function HeaderNav(props) {
+interface HeaderNavProps {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+}
+
+export default function HeaderNav(props: HeaderNavProps) {
   return (
     <>
       <div
