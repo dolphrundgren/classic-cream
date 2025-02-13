@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
@@ -44,9 +45,13 @@ type Args = {
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
+  const products = await ReturnHomePage()
+  console.log(products.docs[0])
+  const mochaURL = products.docs[0].canFrontImage.url
   return (
     <article className="pt-16 pb-24">
       <h1>Hello!</h1>
+      <Image width={60} height={60} alt="Mocha aerosol can" src={mochaURL} />
     </article>
   )
 }
@@ -82,7 +87,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
 })
 
 async function ReturnHomePage() {
-  const url = 'http://localhost:3000/api/posts/'
+  const url = 'http://localhost:3000/api/products/'
   const req = await fetch(url)
   const data = req.json()
   return data
