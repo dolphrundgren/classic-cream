@@ -1,4 +1,5 @@
 // storage-adapter-import-placeholder
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 
 import sharp from 'sharp' // sharp-import
@@ -11,6 +12,7 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
+import Products from './collections/Products'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -64,11 +66,20 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, Products],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
     ...plugins,
+    vercelBlobStorage({
+      enabled: true, // Optional, defaults to true
+      // Specify which collections should use Vercel Blob
+      collections: {
+        media: true,
+      },
+      // Token provided by Vercel once Blob storage is added to your Vercel project
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
     // storage-adapter-placeholder
   ],
   secret: process.env.PAYLOAD_SECRET,
