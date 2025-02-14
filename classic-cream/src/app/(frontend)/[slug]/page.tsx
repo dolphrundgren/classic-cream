@@ -45,17 +45,23 @@ type Args = {
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
-  const products = await ReturnHomePage()
+  const products = await RenderProducts()
   console.log(products.docs[0])
   const payload = products.docs[0]
   const mochaURL = products.docs[0].canFrontImage.url
   const title = payload.title
   const microDescription = payload.microProductDescription
+  const longProductDescription = payload.longProductDescription
+  const butterFatPercentage = payload.butterFatPercentage
+  const ingredientsRichText = payload.ingredients
+  const nutritionFactImage = payload.nutritionFactImage
   return (
-    <article className="w-full h-[calc(100vh-200px)] bg-red-50 pt-16 pb-24">
-      <Image width={160} height={160} alt="Mocha aerosol can" src={mochaURL} />
-      <h1>{title}</h1>
-      <h1>{microDescription}</h1>
+    <article className="bg-blue-50">
+      <div className="w-full h-[calc(100vh-200px)] pt-16 pb-24">
+        <Image width={160} height={160} alt="Mocha aerosol can" src={mochaURL} />
+        <h1>{title}</h1>
+        <h1>{microDescription}</h1>
+      </div>
     </article>
   )
 }
@@ -90,7 +96,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   return result.docs?.[0] || null
 })
 
-async function ReturnHomePage() {
+async function RenderProducts() {
   const url = 'http://localhost:3000/api/products/'
   const req = await fetch(url)
   const data = req.json()
