@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-
+import RichText from '@/components/Richtext/index'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
@@ -47,11 +47,15 @@ type Args = {
 export default async function Page({ params: paramsPromise }: Args) {
   const products = await ReturnHomePage()
   console.log(products.docs[0])
+  const payload = products.docs[0]
   const mochaURL = products.docs[0].canFrontImage.url
+  const title = payload.title
+  const microDescription = payload.microProductDescription
   return (
-    <article className="pt-16 pb-24">
-      <h1>Hello!</h1>
-      <Image width={60} height={60} alt="Mocha aerosol can" src={mochaURL} />
+    <article className="w-full h-[calc(100vh-200px)] bg-red-50 pt-16 pb-24">
+      <Image width={160} height={160} alt="Mocha aerosol can" src={mochaURL} />
+      <h1>{title}</h1>
+      <h1>{microDescription}</h1>
     </article>
   )
 }
