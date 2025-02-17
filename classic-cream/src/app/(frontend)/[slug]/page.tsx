@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import RichText from '@/components/Richtext/index'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
@@ -46,7 +46,20 @@ type Args = {
 
 export default async function Page({ params: paramsPromise }: Args) {
   const products = await RenderProducts()
-  console.log(products.docs[0])
+  console.log(products.docs.length)
+  const productArray = products.docs.map((doc) => (
+    <div
+      key={doc.title}
+      className="h-[35rem] w-[20rem] lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center"
+    >
+      <div className="relative h-[30rem] w-[15rem]">
+        <Image className="object-cover" fill alt="Mocha aerosol can" src={doc.canFrontImage.url} />
+      </div>
+      <h3>{doc.title}</h3>
+      <h3>{doc.microDescription}</h3>
+    </div>
+  ))
+
   const payload = products.docs[0]
   const mochaURL = products.docs[0].canFrontImage.url
   const title = payload.title
@@ -56,11 +69,10 @@ export default async function Page({ params: paramsPromise }: Args) {
   const ingredientsRichText = payload.ingredients
   const nutritionFactImage = payload.nutritionFactImage
   return (
-    <article className="bg-blue-50">
-      <div className="w-full h-[calc(100vh-200px)] pt-16 pb-24">
-        <Image width={160} height={160} alt="Mocha aerosol can" src={mochaURL} />
-        <h1>{title}</h1>
-        <h1>{microDescription}</h1>
+    <article className="bg-white">
+      <div className="flex justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+        <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+        <div className="flex flex-row">{productArray}</div>
       </div>
     </article>
   )
