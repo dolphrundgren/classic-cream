@@ -14,6 +14,36 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
+interface SvgArrowValue {
+  isRight: boolean
+}
+
+const SvgArrow = (props) => {
+  const rightArrow = 'M 0 0 L 50 25 L 0 50 L 0 0'
+  const leftArrow = 'M 50 50 L 0 25 L 50 0 L 50 50'
+  const svgPath = props.isRight ? rightArrow : leftArrow
+  return (
+    <div className="w-24  h-24 bg-red-50 relative">
+      <svg
+        className="z-0 absolute top-0 left-0 right-0 bottom-0 m-auto"
+        width="100"
+        height="100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle r="50" cx="50" cy="50" fill="gray" />
+      </svg>
+      <svg
+        className="z-10 absolute top-0 left-0 right-0 bottom-0 m-auto"
+        width="50"
+        height="50"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d={svgPath} stroke="black" fill="black" strokeWidth="1" />
+      </svg>
+    </div>
+  )
+}
+
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
@@ -70,9 +100,13 @@ export default async function Page({ params: paramsPromise }: Args) {
   const nutritionFactImage = payload.nutritionFactImage
   return (
     <article className="bg-white">
-      <div className="flex justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+      <SvgArrow isRight={true} />
+      <SvgArrow isRight={false} />
+      <div className="flex flex-col w-full justify-around items-center">
         <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
-        <div className="flex flex-row">{productArray}</div>
+        <div className="flex no-scrollbar overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+          <div className="flex gap-8 flex-row">{productArray}</div>
+        </div>
       </div>
     </article>
   )
