@@ -108,7 +108,7 @@ export default function Page({ params: paramsPromise }: Args) {
         </div>
         <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
         <div className="flex no-scrollbar box-border  overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
-          <div className="flex snap-x lg:pl-[40rem] pl-[90rem] pr-[2rem] gap-8 flex-row">
+          <div className="flex snap-x md:pl-[70rem] lg:pl-[40rem] pl-[90rem] pr-[2rem] gap-8 flex-row">
             {productArray}
           </div>
         </div>
