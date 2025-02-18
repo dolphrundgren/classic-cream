@@ -7,12 +7,20 @@ interface SvgArrowValue {
   isRight: boolean
 }
 
+const scrollToElement = (id) => {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  }
+}
+
 const SvgArrow = (props) => {
   const rightArrow = 'M 0 0 L 50 25 L 0 50 L 0 0'
   const leftArrow = 'M 50 50 L 0 25 L 50 0 L 50 50'
   const svgPath = props.isRight ? rightArrow : leftArrow
+  const targetId = props.isRight ? 'Zero Sugar' : 'Heavy Whipped Cream'
   return (
-    <div className="w-24  h-24 relative">
+    <div onClick={() => scrollToElement(targetId)} className="w-24  h-24 relative">
       <svg
         className="z-0 absolute top-0 right-0 left-0 bottom-0 m-auto"
         width="100"
@@ -41,13 +49,14 @@ type Args = {
 
 export default function Page({ params: paramsPromise }: Args) {
   const [products, setProducts] = useState(null)
+  const [focusedProductIndex, setProductIndex] = useState(0)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [iterator, setIterator] = useState(1)
+  const [windowWidth, setWindowWidth] = useState(null)
   const url = 'http://localhost:3000/api/products/'
 
   useEffect(() => {
     getProducts()
+    setWindowWidth(window.innerWidth)
   }, [])
 
   const getProducts = () =>
@@ -57,15 +66,6 @@ export default function Page({ params: paramsPromise }: Args) {
         setProducts(data)
         setLoading(false)
       })
-
-  function ScrollComponent() {
-    const scrollToElement = (id) => {
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-  }
 
   if (loading) return <h1>Loading</h1>
   const productCount = products.docs.length
@@ -99,18 +99,21 @@ export default function Page({ params: paramsPromise }: Args) {
   const butterFatPercentage = payload.butterFatPercentage
   const ingredientsRichText = payload.ingredients
   const nutritionFactImage = payload.nutritionFactImage
+  console.log(windowWidth)
   return (
     <article className="bg-white">
       <div className="flex flex-col relative   w-full justify-around items-center">
         <div className="absolute left-0">
-          <SvgArrow isRight={false} />
+          {windowWidth > 400 ? <SvgArrow isRight={false} /> : null}
         </div>
         <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
-        <div className="flex pl-[50rem] pr-24 no-scrollbar overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
-          <div className="flex snap-x gap-8 flex-row">{productArray}</div>
+        <div className="flex no-scrollbar box-border  overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+          <div className="flex snap-x lg:pl-[40rem] pl-[90rem] pr-[2rem] gap-8 flex-row">
+            {productArray}
+          </div>
         </div>
         <div className="absolute right-0">
-          <SvgArrow isRight={true} />
+          {windowWidth > 400 ? <SvgArrow isRight={true} /> : null}
         </div>
       </div>
     </article>
