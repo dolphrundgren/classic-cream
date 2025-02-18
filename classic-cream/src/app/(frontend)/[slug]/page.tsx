@@ -1,18 +1,7 @@
-import type { Metadata } from 'next'
+'use client'
 import Image from 'next/image'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
-import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-import { homeStatic } from '@/endpoints/seed/home-static'
-
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { RenderHero } from '@/heros/RenderHero'
-import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import React, { useState, useEffect } from 'react'
 
 interface SvgArrowValue {
   isRight: boolean
@@ -30,7 +19,7 @@ const SvgArrow = (props) => {
         height="100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle r="45" cx="50" cy="50" fill="gray" />
+        <circle r="45" cx="50" cy="50" fill="black" />
       </svg>
       <svg
         className="z-10 absolute top-0 left-0 right-0 bottom-0 m-auto"
@@ -38,34 +27,10 @@ const SvgArrow = (props) => {
         height="50"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d={svgPath} stroke="black" fill="black" strokeWidth="1" />
+        <path d={svgPath} stroke="white" fill="white" strokeWidth="1" />
       </svg>
     </div>
   )
-}
-
-export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const pages = await payload.find({
-    collection: 'pages',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
-
-  return params
 }
 
 type Args = {
@@ -74,21 +39,57 @@ type Args = {
   }>
 }
 
-export default async function Page({ params: paramsPromise }: Args) {
-  const products = await RenderProducts()
-  console.log(products.docs.length)
-  const productArray = products.docs.map((doc) => (
-    <div
-      key={doc.title}
-      className="h-[35rem] w-[20rem] lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center"
-    >
-      <div className="relative h-[30rem] w-[15rem]">
-        <Image className="object-cover" fill alt="Mocha aerosol can" src={doc.canFrontImage.url} />
+export default function Page({ params: paramsPromise }: Args) {
+  const [products, setProducts] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [iterator, setIterator] = useState(1)
+  const url = 'http://localhost:3000/api/products/'
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  const getProducts = () =>
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data)
+        setLoading(false)
+      })
+
+  function ScrollComponent() {
+    const scrollToElement = (id) => {
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
+  if (loading) return <h1>Loading</h1>
+  const productCount = products.docs.length
+  const productArray = products.docs.map(function (doc, index) {
+    let isLast = index + 2 > productCount ? true : false
+    return (
+      <div
+        id={doc.title}
+        key={index}
+        className={`h-[35rem] w-[20rem] snap-center lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center`}
+      >
+        <div className="relative h-[30rem] w-[15rem]">
+          <Image
+            className="object-cover"
+            fill
+            alt="Mocha aerosol can"
+            src={doc.canFrontImage.url}
+          />
+        </div>
+        <h3>{doc.title}</h3>
+        <h3>{doc.microDescription}</h3>
       </div>
-      <h3>{doc.title}</h3>
-      <h3>{doc.microDescription}</h3>
-    </div>
-  ))
+    )
+  })
 
   const payload = products.docs[0]
   const mochaURL = products.docs[0].canFrontImage.url
@@ -100,51 +101,18 @@ export default async function Page({ params: paramsPromise }: Args) {
   const nutritionFactImage = payload.nutritionFactImage
   return (
     <article className="bg-white">
-      <SvgArrow isRight={true} />
-      <SvgArrow isRight={false} />
-      <div className="flex flex-col w-full justify-around items-center">
+      <div className="flex flex-col relative   w-full justify-around items-center">
+        <div className="absolute left-0">
+          <SvgArrow isRight={false} />
+        </div>
         <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
-        <div className="flex no-scrollbar overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
-          <div className="flex gap-8 flex-row">{productArray}</div>
+        <div className="flex pl-[50rem] pr-24 no-scrollbar overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+          <div className="flex snap-x gap-8 flex-row">{productArray}</div>
+        </div>
+        <div className="absolute right-0">
+          <SvgArrow isRight={true} />
         </div>
       </div>
     </article>
   )
-}
-
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await paramsPromise
-  const page = await queryPageBySlug({
-    slug,
-  })
-
-  return generateMeta({ doc: page })
-}
-
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    pagination: false,
-    overrideAccess: draft,
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  return result.docs?.[0] || null
-})
-
-async function RenderProducts() {
-  const url = 'http://localhost:3000/api/products/'
-  const req = await fetch(url)
-  const data = req.json()
-  return data
 }
