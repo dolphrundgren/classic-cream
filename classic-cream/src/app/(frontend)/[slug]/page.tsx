@@ -58,7 +58,7 @@ const ProductArray = (props: any) => {
         <div
           id={doc.title}
           key={index}
-          onClick={() => console.log('clicked!')}
+          onClick={() => props.toggleProductFocus('hello')}
           className={`h-[35rem] w-[20rem] snap-center lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center`}
         >
           <div className="relative h-[30rem] w-[15rem]">
@@ -78,13 +78,31 @@ const ProductArray = (props: any) => {
   }
 }
 
+const ProductFocus = (props: any) => {
+  if (!props.productFocus) {
+    return <div>Empty</div>
+  } else {
+    return (
+      <div className="w-[calc(100vw-20rem)] h-[calc(100vh-20rem)]">
+        <h3>{props.productFocus.title}</h3>
+        <button onClick={props.toggleProductFocus(false)}>Click Me</button>
+      </div>
+    )
+  }
+}
+
 export default function Page({ params: paramsPromise }: Args) {
   const [products, setProducts] = useState(null)
   const [focusedProductIndex, setProductIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
+  const [productFocus, setProductFocus] = useState<any | false>(false)
   const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
   const fetchURL = `${baseURL}/api/products/`
+
+  const toggleProductFocus = (toggleValue) => {
+    setProductFocus(toggleValue)
+  }
 
   useEffect(() => {
     getProducts()
@@ -108,9 +126,11 @@ export default function Page({ params: paramsPromise }: Args) {
             {windowWidth > 400 ? <SvgArrow isRight={false} /> : null}
           </div>
           <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+          <h3>{productFocus}</h3>
+          <button onClick={() => toggleProductFocus(false)}>Click Me!</button>
           <div className="flex no-scrollbar box-border  overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
             <div className="flex snap-x md:pl-[70rem] lg:pl-[40rem] pl-[90rem] pr-[2rem] gap-8 flex-row">
-              <ProductArray products={products} />
+              <ProductArray toggleProductFocus={toggleProductFocus} products={products} />
             </div>
           </div>
           <div className="absolute right-0">
