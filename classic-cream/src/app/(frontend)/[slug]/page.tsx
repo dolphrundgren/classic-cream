@@ -75,6 +75,7 @@ export default function Page({ params: paramsPromise }: Args) {
       <div
         id={doc.title}
         key={index}
+        onClick={() => console.log('clicked!')}
         className={`h-[35rem] w-[20rem] snap-center lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center`}
       >
         <div className="relative h-[30rem] w-[15rem]">
