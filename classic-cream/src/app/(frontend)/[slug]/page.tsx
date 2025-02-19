@@ -83,7 +83,8 @@ export default function Page({ params: paramsPromise }: Args) {
   const [focusedProductIndex, setProductIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
-  const url = 'http://localhost:3000/api/products/'
+  const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
+  const fetchURL = `${baseURL}/api/products/`
 
   useEffect(() => {
     getProducts()
@@ -91,7 +92,7 @@ export default function Page({ params: paramsPromise }: Args) {
   }, [])
 
   const getProducts = () =>
-    fetch(url)
+    fetch(fetchURL)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data)
