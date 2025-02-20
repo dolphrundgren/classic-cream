@@ -43,21 +43,32 @@ export default function Page({ params: paramsPromise }: Args) {
     return (
       <article className="bg-white">
         <div className="flex flex-col relative w-full justify-around items-center">
-          <h2 className="text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
-          <div className="flex no-scrollbar box-border relative overflow-x-scroll justify-around items-center flex-col w-full h-[calc(100vh-50px)] lg:h-[calc(100vh-100px)] pt-16 pb-24">
+          {productFocus.active ? (
+            <h2 className="pb-24 text-2xl lg:text-5xl">{productFocus.title}</h2>
+          ) : (
+            <h2 className="pb-24 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+          )}
+          <div
+            className={`${productFocus.active ? 'justify-start overflow-x-hidden h-[105vh] ' : 'justify-around items-center overflow-x-scroll h-[calc(100vh-100px)]'}
+flex no-scrollbar box-border relative flex-col w-full`}
+          >
             <ProductFocus
               className={`${
-                productFocus.active ? 'opacity-100' : 'opacity-0 scale-25 translate-x-[-100rem]'
+                productFocus.active ? 'opacity-100' : 'opacity-0 pointer-events-none'
               } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
               toggleProductFocus={toggleProductFocus}
               productFocus={productFocus}
             />
             <div
-              className={`absolute ${
-                productFocus.active ? 'opacity-0 scale-25 translate-x-[100rem]' : 'opacity-100'
-              } duration-200 ease-in-out top-0 right-0 left-0 bottom-0 m-auto flex snap-x gap-8 flex-row`}
+              className={`${
+                productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
+              } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto flex snap-x gap-8 flex-row`}
             >
-              <ProductArray toggleProductFocus={toggleProductFocus} products={products} />
+              <ProductArray
+                productFocus={productFocus}
+                toggleProductFocus={toggleProductFocus}
+                products={products}
+              />
             </div>
           </div>
         </div>

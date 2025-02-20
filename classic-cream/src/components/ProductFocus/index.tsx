@@ -20,27 +20,32 @@ export const ProductFocus = (props: any) => {
     return <div>Empty</div>
   } else {
     return (
-      <div className="w-[calc(100vw-20rem)] h-[calc(100vh-20rem)]">
-        <button onClick={() => props.toggleProductFocus(false)}>UnFocus</button>
-        <RichText data={props.productFocus.ingredients} />
-        <h3>{props.productFocus.title}</h3>
-        <h4>{props.productFocus.description}</h4>
-        <h5>{props.productFocus.butterfat}</h5>
-        <div className="relative h-[20rem] w-[10rem]">
-          <Image
-            alt={props.productFocus.canFrontImageAlt}
-            className="object-cover"
-            fill
-            src={props.productFocus.canFrontImage}
-          />
+      <div className="w-full lg:h-[calc(100vh-20rem)] flex lg:flex-row flex-col">
+        <div className="flex flex-col">
+          <div className="relative h-[20rem] w-[10rem]">
+            <h5>{props.productFocus.butterfat}</h5>
+            <Image
+              alt={props.productFocus.canFrontImageAlt}
+              className="object-cover"
+              fill
+              src={props.productFocus.canFrontImage}
+            />
+          </div>
         </div>
-        <div className="relative h-[20rem] w-[10rem]">
-          <Image
-            alt={props.productFocus.nutritionFactImageAlt}
-            className="object-cover"
-            fill
-            src={props.productFocus.nutritionFactImage}
-          />
+        <div className="flex flex-col">
+          <button onClick={() => props.toggleProductFocus(false)}>UnFocus</button>
+          <h3>{props.productFocus.title}</h3>
+          <h4>{props.productFocus.shortDescription}</h4>
+          <div className="relative h-[5rem] w-[15rem] lg:h-[10rem] lg:w-[30rem]">
+            <Image
+              alt={props.productFocus.nutritionFactImageAlt}
+              className="object-cover"
+              fill
+              src={props.productFocus.nutritionFactImage}
+            />
+          </div>
+          <RichText data={props.productFocus.ingredients} />
+          <h4 className="bg-blue-50">{props.productFocus.longDescription}</h4>
         </div>
       </div>
     )
