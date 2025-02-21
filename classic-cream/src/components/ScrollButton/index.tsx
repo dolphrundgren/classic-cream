@@ -21,7 +21,7 @@ export const SvgArrow = (props: SvgArrowValue) => {
   return (
     <div onClick={() => scrollToElement(targetId)} className="w-24  h-24 relative">
       <svg
-        className="z-0 absolute top-0 right-0 left-0 bottom-0 m-auto"
+        className="z-80 absolute top-0 right-0 left-0 bottom-0 m-auto"
         width="100"
         height="100"
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ export const SvgArrow = (props: SvgArrowValue) => {
         <circle r="45" cx="50" cy="50" fill="black" />
       </svg>
       <svg
-        className="z-10 absolute top-0 left-0 right-0 bottom-0 m-auto"
+        className="z-90 absolute top-0 left-0 right-0 bottom-0 m-auto"
         width="50"
         height="50"
         xmlns="http://www.w3.org/2000/svg"

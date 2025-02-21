@@ -7,6 +7,7 @@ export interface ProductFocusInterface {
   title?: string
   longDescription?: string
   shortDescription?: string
+  microDescription?: string
   butterFat?: string
   canFrontImage?: string
   canFrontImageAlt?: string
@@ -20,10 +21,16 @@ export const ProductFocus = (props: any) => {
     return <div>Empty</div>
   } else {
     return (
-      <div className="w-full lg:h-[calc(100vh-20rem)] flex lg:flex-row flex-col">
-        <div className="flex flex-col">
-          <div className="relative h-[20rem] w-[10rem]">
-            <h5>{props.productFocus.butterfat}</h5>
+      <div
+        className="w-[calc(100vw-15vw)] lg:h-[calc(100vh-10rem)] flex lg:flex-row
+  flex-col bg-[#efe0cc] place-self-center rounded-xl"
+      >
+        <div className="flex flex-col lg:place-items-start place-items-center">
+          <div className="flex flex-col place-items-center h-[4rem] w-[8rem] mt-5 bg-[#d9d9d9]">
+            <h5>{`${props.productFocus.butterfat}%`}</h5>
+            <h5>BUTTER FAT</h5>
+          </div>
+          <div className="relative h-[30rem] w-[15rem] lg:h-[50rem] lg:w-[25rem]">
             <Image
               alt={props.productFocus.canFrontImageAlt}
               className="object-cover"
@@ -34,7 +41,6 @@ export const ProductFocus = (props: any) => {
         </div>
         <div className="flex flex-col">
           <button onClick={() => props.toggleProductFocus(false)}>UnFocus</button>
-          <h3>{props.productFocus.title}</h3>
           <h4>{props.productFocus.shortDescription}</h4>
           <div className="relative h-[5rem] w-[15rem] lg:h-[10rem] lg:w-[30rem]">
             <Image

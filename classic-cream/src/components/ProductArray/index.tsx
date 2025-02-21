@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export const ProductArray = (props: any) => {
   if (!props.products) {
-    return <div>Empty</div>
+    return null
   } else {
     const productCount = props.products.docs.length
     const productArray = props.products.docs.map(function (doc: any, index: number) {
@@ -12,6 +12,7 @@ export const ProductArray = (props: any) => {
         title: doc.title,
         longDescription: doc.longProductDescription,
         shortDescription: doc.shortProductDescription,
+        microDescription: doc.microProductDescription,
         butterfat: doc.butterFatPercentage,
         canFrontImage: doc.canFrontImage.url,
         canFrontImageAlt: doc.canFrontImage.alt,
@@ -24,9 +25,9 @@ export const ProductArray = (props: any) => {
           id={doc.title}
           key={index}
           onClick={props.productFocus.active ? null : () => props.toggleProductFocus(productJSON)}
-          className={`h-[40rem] lg:h-[35rem] w-[20rem] snap-center lg:w-[25rem] bg-gray-200 rounded-xl flex flex-col place-items-center`}
+          className={`h-[35rem] w-[30rem] lg:h-[45rem] lg:w-[20rem] snap-center  bg-gray-200 rounded-xl flex flex-col place-items-center`}
         >
-          <div className="relative h-[30rem] w-[15rem]">
+          <div className="relative lg:h-[45rem] lg:w-[30rem] h-[30rem] w-[15rem]">
             <Image
               className="object-cover"
               fill
@@ -34,8 +35,8 @@ export const ProductArray = (props: any) => {
               src={doc.canFrontImage.url}
             />
           </div>
-          <h3>{doc.title}</h3>
-          <h3>{doc.microDescription}</h3>
+          <h3 className="text-xl">{doc.title}</h3>
+          <h4>{doc.microProductDescription}</h4>
         </div>
       )
     })

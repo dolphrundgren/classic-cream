@@ -41,16 +41,15 @@ export default function Page({ params: paramsPromise }: Args) {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article className="bg-white">
-        <div className="flex flex-col relative w-full justify-around items-center">
+      <article className="bg-white w-full overflow-x-hidden">
+        <div className="flex flex-col relative w-full place-items-center">
           {productFocus.active ? (
-            <h2 className="pb-24 text-2xl lg:text-5xl">{productFocus.title}</h2>
+            <h2 className="pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
           ) : (
-            <h2 className="pb-24 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+            <h2 className="pb-8 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start overflow-x-hidden h-[105vh] ' : 'justify-around items-center overflow-x-scroll h-[calc(100vh-100px)]'}
-flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start overflow-x-hidden h-[115vh] ' : 'justify-around items-center overflow-x-scroll h-[calc(100vh-100px)]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${
@@ -62,7 +61,8 @@ flex no-scrollbar box-border relative flex-col w-full`}
             <div
               className={`${
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto flex snap-x gap-8 flex-row`}
+              } z-0 duration-200 ease-in-out absolute top-0 right-0
+  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8`}
             >
               <ProductArray
                 productFocus={productFocus}
@@ -71,6 +71,16 @@ flex no-scrollbar box-border relative flex-col w-full`}
               />
             </div>
           </div>
+          {windowWidth < 400 ? null : (
+            <>
+              <div className="absolute left-[94%] top-[35%]">
+                <SvgArrow isRight={true} />
+              </div>
+              <div className={`absolute right-[94%] top-[35%]`}>
+                <SvgArrow isRight={false} />
+              </div>
+            </>
+          )}
         </div>
       </article>
     )
