@@ -44,12 +44,12 @@ export default function Page({ params: paramsPromise }: Args) {
       <article className="bg-white w-full overflow-x-hidden">
         <div className="flex flex-col relative w-full place-items-center">
           {productFocus.active ? (
-            <h2 className="pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
+            <h2 className="font-bold pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
           ) : (
-            <h2 className="pb-8 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+            <h2 className="font-bold pb-8 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start overflow-x-hidden h-[115vh] ' : 'justify-around items-center overflow-x-scroll h-[calc(100vh-100px)]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start overflow-x-hidden h-[165vh] ' : 'justify-around items-center overflow-x-scroll h-[calc(100vh-100px)]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${
@@ -57,6 +57,7 @@ export default function Page({ params: paramsPromise }: Args) {
               } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
               toggleProductFocus={toggleProductFocus}
               productFocus={productFocus}
+              windowWidth={windowWidth}
             />
             <div
               className={`${
@@ -71,12 +72,12 @@ export default function Page({ params: paramsPromise }: Args) {
               />
             </div>
           </div>
-          {windowWidth < 400 ? null : (
+          {windowWidth < 400 ? null : productFocus.active ? null : (
             <>
-              <div className="absolute left-[94%] top-[35%]">
+              <div className="absolute left-[94%] top-[40%]">
                 <SvgArrow isRight={true} />
               </div>
-              <div className={`absolute right-[94%] top-[35%]`}>
+              <div className={`absolute right-[94%] top-[40%]`}>
                 <SvgArrow isRight={false} />
               </div>
             </>
