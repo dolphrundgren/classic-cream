@@ -65,7 +65,7 @@ export default function Page({ params: paramsPromise }: Args) {
               className={`${
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
               } z-0 duration-200 ease-in-out absolute top-0 right-0
-  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8 overflow-x-scroll`}
+  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8 overflow-x-scroll no-scrollbar`}
             >
               <ProductArray
                 productFocus={productFocus}
