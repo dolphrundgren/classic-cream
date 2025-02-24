@@ -46,7 +46,7 @@ export default function Page({ params: paramsPromise }: Args) {
           {productFocus.active ? (
             <h2 className="font-bold pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
           ) : (
-            <h2 className="max-[375px]:text-blue-600 font-bold pb-8 text-2xl lg:text-5xl">
+            <h2 className="xs:text-blue-600 font-bold pb-8 text-2xl lg:text-5xl">
               Our Classic Cream Line Up
             </h2>
           )}

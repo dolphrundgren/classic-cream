@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @theme {
-    --breakpoint-xs: 23rem;
+    --breakpoint-xs: 375px;
 }
 
 @layer utilities {

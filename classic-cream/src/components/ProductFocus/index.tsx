@@ -28,9 +28,7 @@ export const ProductFocus = (props: any) => {
       >
         <div className="flex flex-col lg:place-items-start place-items-center">
           {props.windowWidth < 400 ? (
-            <div className="justify-self-end">
-              <SvgExButton toggleProductFocus={props.toggleProductFocus} />
-            </div>
+            <button onClick={() => props.toggleProductFocus(false)}>Back</button>
           ) : null}
           <div className="flex rounded-r-xl flex-col place-items-center h-[10rem] w-[15rem] mt-5 bg-[#d9d9d9]">
             <h5 className="text-2xl">{`${props.productFocus.butterfat}%`}</h5>
@@ -47,9 +45,7 @@ export const ProductFocus = (props: any) => {
         </div>
         <div className="lg:w-[45rem] flex flex-col items-end justify-start">
           {props.windowWidth > 400 ? (
-            <div>
-              <SvgExButton toggleProductFocus={props.toggleProductFocus} />
-            </div>
+            <button onClick={() => props.toggleProductFocus(false)}>Back</button>
           ) : null}
           <h4>{props.productFocus.shortDescription}</h4>
           <div className="relative h-[5rem] w-[15rem] lg:h-[15rem] lg:w-[45rem]">

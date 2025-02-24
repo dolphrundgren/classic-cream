@@ -50,3 +50,11 @@ export default async function Page({ params: paramsPromise }: Args) {
           <h3>{title}</h3>
           <h3>{microDescription}</h3>
         </div>
+
+
+        xs: '375px',
+        '2xl': '86rem',
+        lg: '64rem',
+        md: '48rem',
+        sm: '40rem',
+        xl: '80rem',

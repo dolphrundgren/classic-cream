@@ -46,6 +46,9 @@ const config = {
       },
     },
     extend: {
+    screens: {
+    xs: {min: "0rem", max: "24rem"}
+},
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
