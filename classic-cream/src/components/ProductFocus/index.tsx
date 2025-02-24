@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { SvgExButton } from '@/components/ExButton/index'
@@ -23,16 +23,22 @@ export const ProductFocus = (props: any) => {
   } else {
     return (
       <div
+        onClick={(e) => e.stopPropagation()}
         className="w-[calc(100vw-15vw)]  lg:h-[calc(100vh-10rem)] flex lg:flex-row
-  flex-col bg-[#efe0cc] lg:justify-between place-self-center rounded-xl"
+  flex-col bg-[#efe0cc] lg:justify-between place-self-center
+  rounded-xl"
       >
         <div className="flex flex-col lg:place-items-start place-items-center">
           {props.windowWidth < 400 ? (
-            <button onClick={() => props.toggleProductFocus(false)}>Back</button>
+            <button
+              className="self-end text-lg h-8 w-12 m-4 "
+              onClick={() => props.toggleProductFocus(false)}
+            >
+              Back
+            </button>
           ) : null}
-          <div className="flex rounded-r-xl flex-col place-items-center h-[10rem] w-[15rem] mt-5 bg-[#d9d9d9]">
-            <h5 className="text-2xl">{`${props.productFocus.butterfat}%`}</h5>
-            <h5 className="text-2xl">BUTTER FAT</h5>
+          <div className="flex lg:rounded-l-none rounded-xl justify-center text-center flex-col h-8 lg:h-[8rem] w-[15rem]  bg-[#d9d9d9]">
+            <h5 className=" text-lg">{`${props.productFocus.butterfat}% BUTTER FAT`}</h5>
           </div>
           <div className="relative h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
             <Image

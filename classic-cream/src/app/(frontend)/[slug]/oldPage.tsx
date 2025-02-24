@@ -32,6 +32,7 @@ export default function Page({ params: paramsPromise }: Args) {
   useEffect(() => {
     getProducts()
     setWindowWidth(window.innerWidth)
+    console.log(params)
   }, [])
 
   const getProducts = () =>
