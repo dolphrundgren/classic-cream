@@ -6,7 +6,8 @@ import { ProductFocusInterface, ProductFocus } from '@/components/ProductFocus/i
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
 
-const PageClient: React.FC = (props: any) => {
+const PageClient: React.FC = () => {
+  /* Force the header to be dark mode while we have an image behind it */
   const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
@@ -38,6 +39,7 @@ const PageClient: React.FC = (props: any) => {
   if (windowWidth) {
     return (
       <article className="bg-white w-full overflow-x-hidden">
+        <PageClient />
         <div
           onClick={productFocus.active ? () => toggleProductFocus(false) : () => null}
           className="flex flex-col relative w-full place-items-center"
@@ -69,7 +71,7 @@ const PageClient: React.FC = (props: any) => {
               <ProductArray
                 productFocus={productFocus}
                 toggleProductFocus={toggleProductFocus}
-                products={props.products}
+                products={products}
               />
             </div>
           </div>
