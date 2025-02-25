@@ -40,7 +40,7 @@ const PageClient = (props: any) => {
       <article className="bg-white w-full overflow-x-hidden">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
-          className="flex flex-col relative w-full place-items-center"
+          className="flex flex-col relative w-full place-items-center overflow-x-hidden"
         >
           {productFocus.active ? (
             <h2 className="font-bold pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
@@ -62,7 +62,8 @@ const PageClient = (props: any) => {
               className={`${
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
               } z-0 duration-200 ease-in-out absolute top-0 right-0
-  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8 overflow-x-scroll no-scrollbar`}
+  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8
+  overflow-x-scroll no-scrollbar`}
             >
               <ProductArray
                 productFocus={productFocus}
@@ -73,10 +74,10 @@ const PageClient = (props: any) => {
           </div>
           {windowWidth < 400 ? null : productFocus.active ? null : (
             <>
-              <div className="absolute left-[94%] top-[40%]">
+              <div className="absolute md:left-[84%] lg:left-[94%] top-[40%]">
                 <SvgArrow isRight={true} />
               </div>
-              <div className={`absolute right-[94%] top-[40%]`}>
+              <div className={`absolute md:right-[84%] lg:right-[94%] top-[40%]`}>
                 <SvgArrow isRight={false} />
               </div>
             </>
