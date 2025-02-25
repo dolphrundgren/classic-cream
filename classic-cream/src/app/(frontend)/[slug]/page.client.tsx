@@ -62,8 +62,8 @@ const PageClient = (props: any) => {
               className={`${
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
               } z-0 duration-200 ease-in-out absolute top-0 right-0
-  left-0 bottom-0 m-auto flex snap-x gap-8 flex-row pl-8 pr-8
-  overflow-x-scroll no-scrollbar`}
+  left-0 bottom-0 m-auto flex snap-x gap-8 3xl:gap-32 flex-row pl-8 pr-8
+  overflow-x-scroll no-scrollbar items-center 3xl:justify-center`}
             >
               <ProductArray
                 productFocus={productFocus}
@@ -72,7 +72,7 @@ const PageClient = (props: any) => {
               />
             </div>
           </div>
-          {windowWidth < 400 ? null : productFocus.active ? null : (
+          {windowWidth < 400 ? null : windowWidth > 1700 ? null : productFocus.active ? null : (
             <>
               <div className="absolute md:left-[84%] lg:left-[94%] top-[40%]">
                 <SvgArrow isRight={true} />
