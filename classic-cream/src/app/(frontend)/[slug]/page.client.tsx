@@ -6,7 +6,7 @@ import { ProductFocusInterface, ProductFocus } from '@/components/ProductFocus/i
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
 
-const PageClient: React.FC = (props: any) => {
+const PageClient = (props: any) => {
   const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
@@ -39,18 +39,16 @@ const PageClient: React.FC = (props: any) => {
     return (
       <article className="bg-white w-full overflow-x-hidden">
         <div
-          onClick={productFocus.active ? () => toggleProductFocus(false) : () => null}
+          onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
           className="flex flex-col relative w-full place-items-center"
         >
           {productFocus.active ? (
             <h2 className="font-bold pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
           ) : (
-            <h2 className="xs:text-blue-600 font-bold pb-8 text-2xl lg:text-5xl">
-              Our Classic Cream Line Up
-            </h2>
+            <h2 className="font-bold pb-8 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start h-[165vh] ' : 'justify-around items-center h-[calc(100vh-100px)]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start xs:h-[165vh] h-[130vh] lg:h-[90vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${

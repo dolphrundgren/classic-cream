@@ -32,7 +32,7 @@ export const ProductFocus = (props: any) => {
           {props.windowWidth < 400 ? (
             <button
               className="self-end text-lg h-8 w-12 m-4 "
-              onClick={() => props.toggleProductFocus(false)}
+              onClick={() => props.toggleProductFocus({ active: false })}
             >
               Back
             </button>
@@ -49,12 +49,25 @@ export const ProductFocus = (props: any) => {
             />
           </div>
         </div>
-        <div className="lg:w-[45rem] flex flex-col items-end justify-start">
+        <div
+          className="lg:w-[40rem] lg:h-[45rem] w-[17rem]  h-[25rem] flex flex-col 
+  justify-start  lg:items-end lg:mr-10 gap-7 m-5"
+        >
           {props.windowWidth > 400 ? (
-            <button onClick={() => props.toggleProductFocus(false)}>Back</button>
+            <button
+              className="text-xl  m-4"
+              onClick={() => props.toggleProductFocus({ active: false })}
+            >
+              Back
+            </button>
           ) : null}
-          <h4>{props.productFocus.shortDescription}</h4>
-          <div className="relative h-[5rem] w-[15rem] lg:h-[15rem] lg:w-[45rem]">
+          <h4
+            className="mb-[-1rem] self-center font-bold lg:text-2xl
+  text-lg text-center"
+          >
+            {props.productFocus.shortDescription}
+          </h4>
+          <div className="relative lg:h-[13rem] lg:w-[40rem] h-[6rem] w-[17rem]  ">
             <Image
               alt={props.productFocus.nutritionFactImageAlt}
               className="object-cover"
@@ -62,9 +75,9 @@ export const ProductFocus = (props: any) => {
               src={props.productFocus.nutritionFactImage}
             />
           </div>
-          <RichText data={props.productFocus.ingredients} />
+          <RichText className="text-sm" data={props.productFocus.ingredients} />
           {props.windowWidth < 400 ? null : (
-            <h4 className="text-md">{props.productFocus.longDescription}</h4>
+            <h4 className="text-lg">{props.productFocus.longDescription}</h4>
           )}
         </div>
       </div>
