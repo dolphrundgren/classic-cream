@@ -26,7 +26,14 @@ export default async function Page({ params }: Args) {
       <PageClient pages={pages} />
       <ProductClient products={products} />
       <Script src="https://lets.shop/productFirstSnippet.js?id=destini-locator" />
-      <div id="destini-locator" locator-id="4570" alpha-code="11DA" className="w-full h-[100vh]" />
+      <div
+        id="destini-locator"
+        locator-id="4570"
+        locator-name="Classic Cream Where To Buy"
+        alpha-code="11DA"
+        client-id="classiccream"
+        className="w-full h-[100vh]"
+      />
     </>
   )
 }
