@@ -24,7 +24,7 @@ export const ProductFocus = (props: any) => {
     return (
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-[calc(100vw-15vw)]  lg:h-[calc(100vh-10rem)] 3xl:h-[80vh] flex lg:flex-row
+        className="w-[calc(100vw-15vw)]  lg:h-[calc(100vh-10rem)] 3xl:h-[60vh] flex lg:flex-row
   flex-col bg-[#efe0cc] lg:justify-between place-self-center
   rounded-xl"
       >
@@ -50,7 +50,7 @@ export const ProductFocus = (props: any) => {
           </div>
         </div>
         <div
-          className="lg:w-[40rem] lg:h-[45rem] w-[17rem]  h-[25rem] 3xl:w-[75rem] 3xl:h-[140rem] flex flex-col 
+          className="lg:w-[40rem] lg:h-[45rem] w-[17rem]  h-[25rem] 3xl:w-[75rem] 3xl:h-[100rem] flex flex-col 
   justify-start  lg:items-end lg:mr-10 gap-7 m-5"
         >
           {props.windowWidth > 400 ? (

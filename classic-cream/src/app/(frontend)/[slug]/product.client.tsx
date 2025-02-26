@@ -36,10 +36,11 @@ const ProductClient = (props: any) => {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article className="bg-white w-full overflow-x-hidden">
+      <article className="bg-white  w-full overflow-x-hidden">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
-          className="flex flex-col relative w-full place-items-center overflow-x-hidden"
+          className="flex flex-col relative w-full place-items-center
+  overflow-x-hidden"
         >
           {productFocus.active ? (
             <h2 className="font-bold pb-8 text-2xl lg:text-5xl 3xl:text-8xl 3xl:m-8">
@@ -54,7 +55,7 @@ const ProductClient = (props: any) => {
             </h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start xs:h-[165vh] h-[130vh] lg:h-[90vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[80vh]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start xs:h-[165vh] h-[130vh] lg:h-[90vh] 3xl:h-[110vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[80vh]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${
@@ -69,7 +70,7 @@ const ProductClient = (props: any) => {
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
               } z-0 duration-200 ease-in-out absolute top-0 right-0
   left-0 bottom-0 m-auto flex snap-x gap-8 3xl:gap-32 flex-row pl-8 pr-8
-  overflow-x-scroll no-scrollbar items-center 3xl:justify-center`}
+  overflow-x-scroll no-scrollbar items-center 3xl:justify-center `}
             >
               <ProductArray
                 productFocus={productFocus}
