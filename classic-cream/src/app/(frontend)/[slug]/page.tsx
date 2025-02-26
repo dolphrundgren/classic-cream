@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Script from 'next/script'
 import ProductClient from './product.client'
 import PageClient from './page.client'
+import FormsClient from './forms.client'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { DestiniLocator, DestiniLocatorType } from '@spins/react-locator'
@@ -12,15 +13,22 @@ type Args = {
   }>
 }
 
+async function postMessage(message: any) {
+  const payload = await getPayload({ config })
+  const postedMessage = await payload.create({
+    collection: 'forms',
+  })
+}
 async function retrieveData() {
   const payload = await getPayload({ config })
   const products = await payload.find({ collection: 'products' })
   const pages = await payload.find({ collection: 'pages' })
-  return { products, pages }
+  const forms = await payload.find({ collection: 'forms' })
+  return { products, pages, forms }
 }
 
 export default async function Page({ params }: Args) {
-  const { products, pages } = await retrieveData()
+  const { products, pages, forms } = await retrieveData()
   return (
     <>
       <PageClient pages={pages} />
@@ -34,6 +42,7 @@ export default async function Page({ params }: Args) {
         client-id="classiccream"
         className="w-full h-[100vh]"
       />
+      <FormsClient forms={forms} />
     </>
   )
 }
