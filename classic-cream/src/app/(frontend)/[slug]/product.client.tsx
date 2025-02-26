@@ -42,12 +42,19 @@ const ProductClient = (props: any) => {
           className="flex flex-col relative w-full place-items-center overflow-x-hidden"
         >
           {productFocus.active ? (
-            <h2 className="font-bold pb-8 text-2xl lg:text-5xl">{productFocus.title}</h2>
+            <h2 className="font-bold pb-8 text-2xl lg:text-5xl 3xl:text-8xl 3xl:m-8">
+              {productFocus.title}
+            </h2>
           ) : (
-            <h2 className="font-bold pb-8 text-2xl lg:text-5xl">Our Classic Cream Line Up</h2>
+            <h2
+              className="font-bold pb-8 md:pt-6 text-2xl lg:text-5xl
+  md:text-4xl 3xl:text-8xl 3xl:mt-8"
+            >
+              Our Classic Cream Line Up
+            </h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start xs:h-[165vh] h-[130vh] lg:h-[90vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start xs:h-[165vh] h-[130vh] lg:h-[90vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[80vh]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${

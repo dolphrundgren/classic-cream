@@ -40,7 +40,7 @@ export const ProductFocus = (props: any) => {
           <div className="flex lg:rounded-l-none rounded-xl justify-center text-center flex-col h-8 lg:h-[8rem] w-[15rem]  bg-[#d9d9d9]">
             <h5 className=" text-lg">{`${props.productFocus.butterfat}% BUTTER FAT`}</h5>
           </div>
-          <div className="relative 3xl:-h[50rem] 3xl:w-[40rem] 2h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
+          <div className="relative 3xl:-h[50rem] 3xl:w-[40rem] h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
             <Image
               alt={props.productFocus.canFrontImageAlt}
               className="object-cover"
