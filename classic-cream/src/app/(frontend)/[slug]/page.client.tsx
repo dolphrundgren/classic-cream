@@ -20,7 +20,7 @@ const PageClient = (props: any) => {
         <div className="flex flex-row items-center justify-center w-full h-[20vh] xs:h-[30vh] lg:h-[40vh] lg:w-[65vw] bg-[#d9d9d9] relative">
           <div className="flex z-10  flex-row w-full h-full">
             <RichText
-              className="w-3/5 xs:text-sm text-base md:text-4xl
+              className="w-3/5 xs:text-sm text-base md:text-3xl
   3xl:text-8xl bg-gray-500/30 font-bold self-center p-3 "
               data={heroRichText}
             />
@@ -35,7 +35,7 @@ const PageClient = (props: any) => {
       >
         <div
           className=" invisible  lg:visible flex flex-col -rotate-[35deg] translate-x-16 items-start self-start mt-24
-  lg:w-1/4 w-0 text-3xl 3xl:text-7xl"
+  lg:w-1/4 w-0 lg:text-xl 2xl:text-2xl 3xl:text-7xl"
         >
           <h4>No Lactose?</h4>
           <h4>No Sugar?</h4>

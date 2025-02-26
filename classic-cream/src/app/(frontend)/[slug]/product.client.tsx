@@ -55,7 +55,7 @@ const ProductClient = (props: any) => {
             </h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start xs:h-[165vh] md:h-[45vh] h-[130vh] lg:h-[90vh] 3xl:h-[110vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[50vh] lg:h-[75vh]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start xs:h-[165vh] md:h-[45vh] h-[130vh] lg:h-[90vh] 3xl:h-[110vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[50vh] lg:h-[95vh]'} flex no-scrollbar box-border relative flex-col w-full`}
           >
             <ProductFocus
               className={`${
@@ -79,7 +79,7 @@ const ProductClient = (props: any) => {
               />
             </div>
           </div>
-          {windowWidth < 400 ? null : windowWidth > 1700 ? null : productFocus.active ? null : (
+          {windowWidth < 602 ? null : windowWidth > 1700 ? null : productFocus.active ? null : (
             <>
               <div className="absolute md:left-[84%] md:top-[50%] lg:left-[94%] lg:top-[40%]">
                 <SvgArrow isRight={true} />

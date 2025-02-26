@@ -42,7 +42,6 @@ export default async function Page({ params }: Args) {
         client-id="classiccream"
         className="w-full h-[100vh]"
       />
-      <FormsClient forms={forms} />
     </>
   )
 }
