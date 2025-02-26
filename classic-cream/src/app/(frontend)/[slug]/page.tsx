@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import Script from 'next/script'
 import ProductClient from './product.client'
 import PageClient from './page.client'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { DestiniLocator, DestiniLocatorType } from '@spins/react-locator'
 
 type Args = {
   params: Promise<{
@@ -23,6 +25,8 @@ export default async function Page({ params }: Args) {
     <>
       <PageClient pages={pages} />
       <ProductClient products={products} />
+      <Script src="https://lets.shop/productFirstSnippet.js?id=destini-locator" />
+      <div id="destini-locator" locator-id="4570" alpha-code="11DA" className="w-full h-[100vh]" />
     </>
   )
 }
