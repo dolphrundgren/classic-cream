@@ -4,7 +4,6 @@ import { SvgArrow } from '@/components/ScrollButton/index'
 import { ProductArray } from '@/components/ProductArray/index'
 import { ProductFocusInterface, ProductFocus } from '@/components/ProductFocus/index'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import Image from 'next/image'
 
 const ProductClient = (props: any) => {
   const [products, setProducts] = useState(null)
