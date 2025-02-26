@@ -13,22 +13,15 @@ type Args = {
   }>
 }
 
-async function postMessage(message: any) {
-  const payload = await getPayload({ config })
-  const postedMessage = await payload.create({
-    collection: 'forms',
-  })
-}
 async function retrieveData() {
   const payload = await getPayload({ config })
   const products = await payload.find({ collection: 'products' })
   const pages = await payload.find({ collection: 'pages' })
-  const forms = await payload.find({ collection: 'forms' })
-  return { products, pages, forms }
+  return { products, pages }
 }
 
 export default async function Page({ params }: Args) {
-  const { products, pages, forms } = await retrieveData()
+  const { products, pages } = await retrieveData()
   return (
     <>
       <PageClient pages={pages} />
