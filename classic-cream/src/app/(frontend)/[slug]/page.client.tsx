@@ -20,7 +20,7 @@ const PageClient = (props: any) => {
         <div className="flex flex-row items-center justify-center h-full w-full   bg-[#d9d9d9] relative">
           <div className="flex z-10  flex-row w-full h-full">
             <RichText
-              className="flex flex-col w-3/5 lg:h-[200px] bg-gray-500/30 font-bold self-center justify-center text-left p-3 xs:text-sm lg:text-4xl 2xl:text-5xl"
+              className="flex flex-col w-3/5 lg:h-[200px] bg-red-500/30 font-bold self-center justify-center text-left p-3 xs:text-sm lg:text-4xl 2xl:text-5xl"
               data={heroRichText}
             />
           </div>
