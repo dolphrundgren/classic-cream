@@ -67,3 +67,16 @@ export async function generateStaticParams() {
   const products = await payload.find({ collection: 'products' })
   return 'poop'
 }
+
+
+      <div className="container self-center flex flex-row items-center lg:justify-start justify-center  bg-[#d9d9d9]">
+        <div
+          className=" invisible  lg:visible flex flex-col -rotate-[35deg] translate-x-16 items-start self-start mt-24
+  w-0 lg:text-xl 2xl:text-2xl 3xl:text-7xl "
+        >
+          <h4>No Lactose?</h4>
+          <h4>No Sugar?</h4>
+          <h4 className="font-bold"> No Problem!</h4>
+        </div>
+        <RichText className=" text-sm md:text-xl lg:text-2xl 3xl:text-6xl" data={contentRichText} />
+      </div>
