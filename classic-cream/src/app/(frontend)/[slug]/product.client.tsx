@@ -55,7 +55,7 @@ const ProductClient = (props: any) => {
             </h2>
           )}
           <div
-            className={`${productFocus.active ? 'justify-start xs:h-[165vh] md:h-[45vh] h-[130vh] lg:h-[90vh] 3xl:h-[110vh]' : 'justify-around items-center xs:h-[calc(100vh-50px)] h-[calc(100vh-200px)] md:h-[50vh] lg:h-[95vh]'} flex no-scrollbar box-border relative flex-col w-full`}
+            className={`${productFocus.active ? 'justify-start xs:h-[165vh] md:h-[45vh] h-[130vh] lg:h-[90vh] 3xl:h-[110vh]' : 'justify-around items-center xs:h-[500px] h-[500px] lg:h-[500px] '} flex no-scrollbar box-border relative flex-col w-full mb-8`}
           >
             <ProductFocus
               className={`${
@@ -70,25 +70,26 @@ const ProductClient = (props: any) => {
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
               } z-0 duration-200 ease-in-out absolute top-0 right-0
   left-0 bottom-0 m-auto flex snap-x gap-8 3xl:gap-32 flex-row pl-8 pr-8
-  overflow-x-scroll no-scrollbar items-center 3xl:justify-center `}
+  overflow-x-scroll no-scrollbar items-center xl:justify-start 2xl:justify-center`}
             >
               <ProductArray
                 productFocus={productFocus}
                 toggleProductFocus={toggleProductFocus}
                 products={props.products}
+                windowWidth={windowWidth}
               />
             </div>
+            {windowWidth < 602 ? null : windowWidth > 1500 ? null : productFocus.active ? null : (
+              <>
+                <div className="absolute top-[200px] right-0  m-auto">
+                  <SvgArrow isRight={true} />
+                </div>
+                <div className={`absolute top-[200px] left-0 m-auto`}>
+                  <SvgArrow isRight={false} />
+                </div>
+              </>
+            )}
           </div>
-          {windowWidth < 602 ? null : windowWidth > 1700 ? null : productFocus.active ? null : (
-            <>
-              <div className="absolute md:left-[84%] md:top-[50%] lg:left-[94%] lg:top-[40%]">
-                <SvgArrow isRight={true} />
-              </div>
-              <div className={`absolute md:right-[84%] md:top-[50%] lg:right-[94%] lg:top-[40%]`}>
-                <SvgArrow isRight={false} />
-              </div>
-            </>
-          )}
         </div>
       </article>
     )

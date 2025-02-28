@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { SvgArrow } from '@/components/ScrollButton/index'
 
 export const ProductArray = (props: any) => {
   if (!props.products) {
@@ -28,10 +29,10 @@ export const ProductArray = (props: any) => {
           onClick={
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
-          className={`3xl:h-[70rem] h-[35rem] w-[35rem] lg:h-[45rem] lg:w-[20rem]
+          className={`h-full w-auto 
   snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-items-center `}
         >
-          <div className="relative 3xl:h-[70rem] 3xl:w-[30rem] lg:h-[38rem] lg:w-[20rem] h-[30rem] w-[15rem]">
+          <div className="relative h-[400px] w-[250px]">
             <Image
               className="object-cover"
               fill
