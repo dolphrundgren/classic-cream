@@ -33,7 +33,7 @@ export default async function Page({ params }: Args) {
         locator-name="Classic Cream Where To Buy"
         alpha-code="11DA"
         client-id="classiccream"
-        className="w-full h-[100vh]"
+        className="container h-[550px] md:h-[600px] xl:h-[600px] mt-[10px]"
       />
     </>
   )

@@ -24,13 +24,12 @@ export const ProductFocus = (props: any) => {
     return (
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-[calc(100vw-15vw)]  lg:h-[calc(100vh-10rem)]
-  3xl:h-[60vh] flex md:flex-row lg:flex-row
+        className="flex md:flex-row lg:flex-row
   flex-col bg-[#efe0cc] lg:justify-between place-self-center
-  rounded-xl"
+  rounded-xl lg:h-[700px] xl:h-[850px] w-full"
       >
         <div className="flex flex-col lg:place-items-start place-items-center">
-          {props.windowWidth < 400 ? (
+          {props.windowWidth < 450 ? (
             <button
               className="self-end text-lg h-8 w-12 m-4 "
               onClick={() => props.toggleProductFocus({ active: false })}
@@ -38,10 +37,7 @@ export const ProductFocus = (props: any) => {
               Back
             </button>
           ) : null}
-          <div className="flex lg:rounded-l-none rounded-xl md:rounded-l-none justify-center text-center flex-col h-8 lg:h-[8rem] w-[15rem]  bg-[#d9d9d9]">
-            <h5 className=" text-lg">{`${props.productFocus.butterfat}% BUTTER FAT`}</h5>
-          </div>
-          <div className="relative 3xl:-h[50rem] 3xl:w-[40rem] h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
+          <div className="relative 3xl:-h[50rem]  h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
             <Image
               alt={props.productFocus.canFrontImageAlt}
               className="object-cover"
@@ -51,12 +47,13 @@ export const ProductFocus = (props: any) => {
           </div>
         </div>
         <div
-          className="lg:w-[40rem] lg:h-[45rem] md:w-[25rem] md:h-[30rem] w-[17rem]  h-[25rem] 3xl:w-[75rem] 3xl:h-[100rem] flex flex-col 
-  justify-start  lg:items-end lg:mr-10 gap-7 md:gap-5 m-5 md:items-end"
+          className="xl:h-auto lg:h-auto lg:w-3/4 xl:w-3/4 md:w-[25rem] md:h-[30rem] w-[17rem]  h-[25rem]  flex flex-col 
+  justify-start lg:items-end xl:mr-10 lg:mr-10 gap-7 md:ga-5 m-5
+  md:items-end place-self-center"
         >
-          {props.windowWidth > 400 ? (
+          {props.windowWidth > 450 ? (
             <button
-              className="text-xl lg:text-2xl 3xl:text-3xl md:text-sm m-4 md:m-2"
+              className="text-xl  3xl:text-3xl md:text-sm m-4 md:m-2"
               onClick={() => props.toggleProductFocus({ active: false })}
             >
               Back
@@ -64,11 +61,14 @@ export const ProductFocus = (props: any) => {
           ) : null}
           <h4
             className="mb-[-1rem] lg:mb-[0rem] 3xl:mb-[0rem] self-center font-bold lg:text-xl
-  text-lg text-center 3xl:text-4xl  md:text-sm"
+  text-lg text-center  md:text-sm"
           >
             {props.productFocus.shortDescription}
           </h4>
-          <div className="relative lg:h-[13rem] lg:w-[40rem] md:h-[8rem] md:w-[25rem] h-[6rem] w-[17rem] 3xl:w-[75rem] 3xl:h-[25rem]">
+          <div
+            className="relative lg:h-[200px] lg:w-full
+  md:h-[8rem] md:w-[25rem] h-[6rem] w-[17rem] xl:h-[275px] xl:w-full"
+          >
             <Image
               alt={props.productFocus.nutritionFactImageAlt}
               className="object-cover"
@@ -77,13 +77,11 @@ export const ProductFocus = (props: any) => {
             />
           </div>
           <RichText
-            className="text-sm lg:text-base 3xl:text-lg md:text-xs"
+            className="text-sm lg:text-sm md:text-xs"
             data={props.productFocus.ingredients}
           />
-          {props.windowWidth < 400 ? null : (
-            <h4 className="md:text-xs lg:text-xl 3xl:text-3xl">
-              {props.productFocus.longDescription}
-            </h4>
+          {props.windowWidth < 450 ? null : (
+            <h4 className="md:text-xs lg:text-base ">{props.productFocus.longDescription}</h4>
           )}
         </div>
       </div>
