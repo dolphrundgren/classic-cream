@@ -12,6 +12,8 @@ import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import Products from './collections/Products'
+import Subscriptions from './collections/Subscriptions'
+import Messages from './collections/Messages'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -65,7 +67,7 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users, Products],
+  collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

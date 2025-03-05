@@ -4,20 +4,30 @@ import Form from 'next/form'
 import { createSubscription } from '@/app/(frontend)/subscriptions/actions'
 
 const initialState = {
-  message: 'Goodbye',
+  error: false,
+  complete: false,
+  serverMessage: '',
+  email: '',
+  firstName: '',
+  lastName: '',
 }
 
 export default function Subscribe() {
   const [state, formAction, pending] = useActionState(createSubscription, initialState)
-  return (
-    <>
-      <h1>Subscribe</h1>
-      <h2>{`state: ${state?.message}`}</h2>
-      <Form action={formAction}>
-        <input className="border" name="email" />
-        <input className="border" name="firstName" />
-        <button type="submit">Test</button>
-      </Form>
-    </>
-  )
+  if (state.complete) {
+    return <h1>{state.serverMessage}</h1>
+  } else {
+    return (
+      <>
+        <h1>Subscribe</h1>
+        {state.error ? <h2>{state.serverMessage}</h2> : null}
+        <Form action={formAction}>
+          <input required={true} className="border" name="email" />
+          <input className="border" name="firstName" />
+          <input className="border" name="lastName" />
+          <button type="submit">Test</button>
+        </Form>
+      </>
+    )
+  }
 }

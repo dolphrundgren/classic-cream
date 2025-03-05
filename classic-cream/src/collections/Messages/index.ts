@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-const Subscriptions: CollectionConfig = {
-  slug: 'subscriptions',
+const Messages: CollectionConfig = {
+  slug: 'messages',
   admin: {
     useAsTitle: 'email',
   },
@@ -12,25 +12,31 @@ const Subscriptions: CollectionConfig = {
   },
   fields: [
     {
-      name: 'email',
-      label: 'Email',
-      type: 'email',
+      name: 'message',
+      label: 'Message',
+      type: 'textarea',
       required: true,
     },
     {
       name: 'firstName',
       label: 'First Name',
       type: 'text',
-      required: false,
+      required: true,
     },
     {
       name: 'lastName',
       label: 'Last Name',
       type: 'text',
-      required: false,
+      required: true,
+    },
+    {
+      name: 'email',
+      label: 'Email',
+      type: 'email',
+      required: true,
     },
   ],
   timestamps: true,
 }
 
-export default Subscriptions
+export default Messages
