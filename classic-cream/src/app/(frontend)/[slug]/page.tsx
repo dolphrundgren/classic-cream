@@ -3,6 +3,7 @@ import Script from 'next/script'
 import ProductClient from './product.client'
 import PageClient from './page.client'
 import FormsClient from './forms.client'
+import Subscribe from './subscribe.client'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { DestiniLocator, DestiniLocatorType } from '@spins/react-locator'
@@ -35,6 +36,7 @@ export default async function Page({ params }: Args) {
         client-id="classiccream"
         className="container h-[100vh]"
       />
+      <Subscribe />
     </>
   )
 }
