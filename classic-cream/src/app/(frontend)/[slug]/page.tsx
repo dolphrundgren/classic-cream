@@ -4,6 +4,7 @@ import ProductClient from './product.client'
 import PageClient from './page.client'
 import FormsClient from './forms.client'
 import Subscribe from './subscribe.client'
+import Message from './message.client'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { DestiniLocator, DestiniLocatorType } from '@spins/react-locator'
@@ -37,6 +38,7 @@ export default async function Page({ params }: Args) {
         className="container h-[100vh]"
       />
       <Subscribe />
+      <Message />
     </>
   )
 }
