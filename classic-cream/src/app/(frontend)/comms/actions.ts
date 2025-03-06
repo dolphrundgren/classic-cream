@@ -13,7 +13,7 @@ export async function createMessageOrSubscription(
   const firstName = formData.get('firstName') as string
   const lastName = formData.get('lastName') as string
   const clientMessage = formData.get('clientMessage') as string
-  let errorObject = {
+  const errorObject = {
     complete: false,
     error: true,
     serverMessage: 'The email address you provided is not in a valid format.',
