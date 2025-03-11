@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { HeaderThemeProvider } from './HeaderTheme'
 import { ThemeProvider } from './Theme'
+import { MenuProvider } from './Menu'
 
 export const Providers: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
   return (
-    <ThemeProvider>
-      <HeaderThemeProvider>{children}</HeaderThemeProvider>
-    </ThemeProvider>
+    <MenuProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </MenuProvider>
   )
 }

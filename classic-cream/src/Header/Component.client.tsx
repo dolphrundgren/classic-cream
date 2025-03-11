@@ -1,8 +1,8 @@
 'use client'
-import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 import type { Header } from '@/payload-types'
 
@@ -15,27 +15,36 @@ interface HeaderClientProps {
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
-  const [theme, setTheme] = useState<string | null>(null)
-  const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
-  useEffect(() => {
-    setHeaderTheme(null)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
-
-  useEffect(() => {
-    if (headerTheme && headerTheme !== theme) setTheme(headerTheme)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [headerTheme])
-
   return (
-    <header className="container  relative z-20 " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex flex-row lg:justify-start  justify-center">
+    <header className="container h-48 relative z-20 ">
+      <div className="py-8 flex flex-row lg:justify-start gap-4 justify-center">
         <Link href="/">
           <Logo loading="eager" priority="high" />
         </Link>
-        <HeaderNav data={data} />
+        <nav className="flex flex-row self-center gap-4 text-2xl font-bold">
+          <Link href="about">About Us</Link>
+          <Link href="variety">Variety</Link>
+          <Link href="where-to-buy">Where To Buy</Link>
+        </nav>
+        <img
+          alt="Finest Ingredients"
+          width={290}
+          height={181}
+          decoding="async"
+          className="h-[130px]"
+          src="/api/media/file/Finest_Ingredients.svg"
+        />
+      </div>
+      <div className="absolute right-0 top-0 m-auto overflow-visible h-[250px] w-[400px]">
+        <Image
+          className="object-cover overflow-visible"
+          fill
+          alt="Brownies with a
+    dollop"
+          src="/api/media/file/Pumpkin_Spice_usage1.png"
+        />
       </div>
     </header>
   )

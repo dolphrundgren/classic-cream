@@ -16,14 +16,14 @@ export const Logo = (props: Props) => {
   return (
     /* eslint-disable @next/next/no-img-element */
     <img
-      alt="Payload Logo"
+      alt="Classic Cream Logo"
       width={193}
-      height={34}
+      height={48}
       loading={loading}
       fetchPriority={priority}
       decoding="async"
-      className={clsx('max-w-[200px] w-full h-[85px]', className)}
-      src="/api/media/file/ClassicCream_Logo.png"
+      className={clsx('max-w-[300px] w-full h-[130px]', className)}
+      src="/api/media/file/CC_LOGO.svg"
     />
   )
 }
