@@ -26,10 +26,6 @@ export default async function Page({ params }: Args) {
   const { products, pages } = await retrieveData()
   return (
     <>
-      <div
-        className="h-[100px] z-0 w-full bg-[length:auto_95px]
-    bg-repeat-x bg-[url(/api/media/file/Black_Ribbon.svg)]"
-      ></div>
       <PageClient pages={pages} />
       <ProductClient products={products} />
       <Script src="https://lets.shop/productFirstSnippet.js?id=destini-locator" />
