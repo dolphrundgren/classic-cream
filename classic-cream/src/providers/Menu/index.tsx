@@ -1,19 +1,24 @@
 'use client'
 import React, { createContext, useState } from 'react'
+import type { MenuContextType } from './types'
 
-interface MenuInterface {
-  isMenuOpen: boolean | null
-  setIsMenuOpen: {}
+const initialContext: MenuContextType = {
+  menuIsOpen: false,
+  toggleMenu: () => null,
 }
 
-export const MenuContext = createContext<MenuInterface>(null)
+export const MenuContext = createContext(initialContext)
 
-export const MenuProvider = ({ children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
+  const [menuIsOpen, setMenuState] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = (menuIsOpen: boolean | null) => {
+    if (menuIsOpen === null) {
+      setMenuState(false)
+    } else {
+      setMenuState(!menuIsOpen)
+    }
   }
 
-  return <MenuContext.Provider value={isMenuOpen}>{children}</MenuContext.Provider>
+  return <MenuContext.Provider value={{ menuIsOpen, toggleMenu }}>{children}</MenuContext.Provider>
 }
