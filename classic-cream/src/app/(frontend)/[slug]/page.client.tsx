@@ -60,10 +60,12 @@ const PageClient = (props: any) => {
                 src={premiumBadge}
               />
             </div>
+            {menuIsOpen ? <h1>On</h1> : <h1>Off</h1>}
             <RichText
               className="text-xs md:text-xl lg:text-2xl xl:text-xl"
               data={contentRichText}
             />
+            <button onClick={() => toggleMenu(menuIsOpen)}>Toggle</button>
           </div>
           <div className="grow flex flex-row place-content-end">
             <div className="relative h-[565px] w-[315px] ">

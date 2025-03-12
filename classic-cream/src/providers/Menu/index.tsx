@@ -10,9 +10,9 @@ const initialContext: MenuContextType = {
 export const MenuContext = createContext(initialContext)
 
 export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
-  const [menuIsOpen, setMenuState] = useState(false)
+  const [menuIsOpen, setMenuState] = useState<boolean | undefined>(false)
 
-  const toggleMenu = (menuIsOpen: boolean | null) => {
+  const toggleMenu = (menuIsOpen: boolean | null | undefined) => {
     if (menuIsOpen === null) {
       setMenuState(false)
     } else {

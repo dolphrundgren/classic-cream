@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { MenuContext } from '@/providers/Menu'
 import Image from 'next/image'
 
 import type { Header } from '@/payload-types'
@@ -16,9 +17,10 @@ interface HeaderClientProps {
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const pathname = usePathname()
+  const { menuIsOpen, toggleMenu } = useContext(MenuContext)
 
   return (
-    <header className="container h-48 relative z-20 ">
+    <header className="container h-48 relative z-20">
       <div className="py-8 flex flex-row lg:justify-start gap-4 justify-center">
         <Link href="/">
           <Logo loading="eager" priority="high" />
