@@ -1,7 +1,12 @@
 'use client'
 import React, { createContext, useState } from 'react'
 
-export const MenuContext = createContext(null)
+interface MenuInterface {
+  isMenuOpen: boolean | null
+  setIsMenuOpen: {}
+}
+
+export const MenuContext = createContext<MenuInterface>(null)
 
 export const MenuProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,5 +15,5 @@ export const MenuProvider = ({ children }) => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  return <MenuContext.Provider value={{ isMenuOpen, toggleMenu }}>{children}</MenuContext.Provider>
+  return <MenuContext.Provider value={isMenuOpen}>{children}</MenuContext.Provider>
 }

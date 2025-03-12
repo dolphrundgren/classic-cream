@@ -5,7 +5,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import { MenuContext } from '@/providers/Menu'
 
 const PageClient = (props: any) => {
-  const { isMenuOpen, toggleMenu } = useContext(MenuContext)
+  const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)
   const pageData = props.pages.docs[0]
   //Hero data
   const heroImage = pageData.hero.media.sizes.medium.url
