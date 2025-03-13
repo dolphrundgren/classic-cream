@@ -29,10 +29,10 @@ export const ProductArray = (props: any) => {
           onClick={
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
-          className={`h-full w-auto 
+          className={`h-full w-[200px]
   snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-items-center `}
         >
-          <div className="relative h-[400px] w-[250px]">
+          <div className="relative h-[400px] w-[100px]">
             <Image
               className="object-cover"
               fill
@@ -40,8 +40,7 @@ export const ProductArray = (props: any) => {
               src={doc.canFrontImage.url}
             />
           </div>
-          <h3 className="font-bold text-xl">{doc.title}</h3>
-          <h4>{doc.microProductDescription}</h4>
+          <h3 className="font-bold text-base text-center">{doc.title}</h3>
         </div>
       )
     })
