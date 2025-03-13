@@ -55,7 +55,7 @@ const ProductClient = (props: any) => {
             </h2>
           )}
           <div
-            className={`${productFocus.active ? 'container justify-start' : 'justify-around items-center xs:h-[500px] h-[500px] lg:h-[500px] '} flex no-scrollbar box-border relative flex-col w-full mb-8`}
+            className={`${productFocus.active ? 'container justify-start' : 'justify-around items-center xs:h-[500px] h-[500px] lg:h-[600px] '} flex no-scrollbar box-border relative flex-col w-full mb-8`}
           >
             <ProductFocus
               className={`${

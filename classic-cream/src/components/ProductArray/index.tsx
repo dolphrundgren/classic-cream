@@ -9,6 +9,7 @@ export const ProductArray = (props: any) => {
   } else {
     const productCount = props.products.docs.length
     const productArray = props.products.docs.map(function (doc: any, index: number) {
+      console.log(doc)
       const productJSON = {
         active: true,
         title: doc.title,
@@ -21,6 +22,8 @@ export const ProductArray = (props: any) => {
         nutritionFactImage: doc.nutritionFactImage.url,
         nutritionFactImageAlt: doc.nutritionFactImage.alt,
         ingredients: doc.ingredients,
+        foodImage: doc.foodImage.url,
+        foodImageAlt: doc.foodImage.alt,
       }
       return (
         <div
@@ -29,10 +32,10 @@ export const ProductArray = (props: any) => {
           onClick={
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
-          className={`h-full w-[200px]
-  snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-items-center `}
+          className={`h-[600px] w-[250px]
+  snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-center`}
         >
-          <div className="relative h-[400px] w-[100px]">
+          <div className="relative h-[500px] w-[125px]">
             <Image
               className="object-cover"
               fill

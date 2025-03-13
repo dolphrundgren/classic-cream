@@ -15,6 +15,8 @@ export interface ProductFocusInterface {
   nutritionFactImage?: string
   nutritionFactImageAlt?: string
   ingredients?: string
+  foodImage?: string
+  foodImageAlt?: string
 }
 
 export const ProductFocus = (props: any) => {
@@ -25,50 +27,32 @@ export const ProductFocus = (props: any) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className="flex md:flex-row lg:flex-row
-  flex-col bg-[#efe0cc] lg:justify-between place-self-center
-  rounded-xl lg:h-[700px] xl:h-[850px] w-full"
+  flex-col bg-[#cccccc] lg:justify-between place-self-center
+  rounded-xl lg:h-[700px] xl:h-[650px] w-full"
       >
-        <div className="flex flex-col lg:place-items-start place-items-center">
-          {props.windowWidth < 450 ? (
-            <button
-              className="self-end text-lg h-8 w-12 m-4 "
-              onClick={() => props.toggleProductFocus({ active: false })}
-            >
-              Back
-            </button>
-          ) : null}
-          <div className="relative 3xl:-h[50rem]  h-[30rem] w-[15rem] lg:h-[80rem] lg:w-[20rem]">
+        <div className="flex flex-col items-center justify-center">
+          <div className="relative w-[400px] h-[500px] m-4 rounded-xl">
             <Image
-              alt={props.productFocus.canFrontImageAlt}
+              alt={props.productFocus.foodImageAlt}
               className="object-cover"
               fill
-              src={props.productFocus.canFrontImage}
+              src={props.productFocus.foodImage}
             />
           </div>
         </div>
         <div
-          className="xl:h-auto lg:h-auto lg:w-3/4 xl:w-3/4 md:w-[25rem] md:h-[30rem] w-[17rem]  h-[25rem]  flex flex-col 
+          className="xl:h-auto lg:h-auto lg:w-3/4 xl:w-3/5 md:w-[25rem] md:h-[30rem] w-[17rem]  h-[25rem]  flex flex-col 
   justify-start lg:items-end xl:mr-10 lg:mr-10 gap-7 md:ga-5 m-5
   md:items-end place-self-center"
         >
-          {props.windowWidth > 450 ? (
-            <button
-              className="text-xl  3xl:text-3xl md:text-sm m-4 md:m-2"
-              onClick={() => props.toggleProductFocus({ active: false })}
-            >
-              Back
-            </button>
-          ) : null}
           <h4
-            className="mb-[-1rem] lg:mb-[0rem] 3xl:mb-[0rem] self-center font-bold lg:text-xl
-  text-lg text-center  md:text-sm"
+            className="mb-[-1rem] lg:mb-[0rem] 3xl:mb-[0rem]
+  self-start font-bold lg:text-3xl
+  text-lg md:text-sm"
           >
-            {props.productFocus.shortDescription}
+            {props.productFocus.title}
           </h4>
-          <div
-            className="relative lg:h-[200px] lg:w-full
-  md:h-[8rem] md:w-[25rem] h-[6rem] w-[17rem] xl:h-[275px] xl:w-full"
-          >
+          <div className="relative h-[260px] w-full">
             <Image
               alt={props.productFocus.nutritionFactImageAlt}
               className="object-cover"
@@ -80,9 +64,12 @@ export const ProductFocus = (props: any) => {
             className="text-sm lg:text-sm md:text-xs"
             data={props.productFocus.ingredients}
           />
-          {props.windowWidth < 450 ? null : (
-            <h4 className="md:text-xs lg:text-base ">{props.productFocus.longDescription}</h4>
-          )}
+          <button
+            className="text-xl  3xl:text-3xl md:text-sm m-4 md:m-2"
+            onClick={() => props.toggleProductFocus({ active: false })}
+          >
+            Back
+          </button>
         </div>
       </div>
     )
