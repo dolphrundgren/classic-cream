@@ -33,7 +33,6 @@ export const ProductFocus = (props: any) => {
         <div className="flex flex-col items-center justify-center">
           <div className={`relative w-[400px] h-[500px] m-4 rounded-3xl overflow-hidden`}>
             <Image
-              className="rounded-3xl"
               alt={props.productFocus.foodImageAlt}
               className="object-cover"
               fill
@@ -69,7 +68,7 @@ export const ProductFocus = (props: any) => {
             className="bg-[#9f9067] w-[225px] aspect-[4] text-white m-4 md:m-2 rounded-2xl font-extrabold text-xl"
             onClick={() => props.toggleProductFocus({ active: false })}
           >
-            Product Selections
+            Product Selection
           </button>
         </div>
       </div>

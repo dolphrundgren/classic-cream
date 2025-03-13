@@ -54,7 +54,6 @@ const ProductClient = (props: any) => {
               } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
               toggleProductFocus={toggleProductFocus}
               productFocus={productFocus}
-              windowWidth={windowWidth}
             />
             <div
               className={`${
