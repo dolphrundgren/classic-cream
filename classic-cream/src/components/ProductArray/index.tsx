@@ -33,7 +33,7 @@ export const ProductArray = (props: any) => {
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
           className={`h-[600px] w-[250px]
-  snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-center`}
+  snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-end`}
         >
           <div className="relative h-[500px] w-[125px]">
             <Image
@@ -43,7 +43,7 @@ export const ProductArray = (props: any) => {
               src={doc.canFrontImage.url}
             />
           </div>
-          <h3 className="font-bold text-base text-center">{doc.title}</h3>
+          <h3 className="justify-self-end h-[72px] font-bold text-base text-center">{doc.title}</h3>
         </div>
       )
     })

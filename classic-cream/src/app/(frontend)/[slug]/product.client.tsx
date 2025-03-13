@@ -42,18 +42,9 @@ const ProductClient = (props: any) => {
           className="flex flex-col relative w-full place-items-center
   overflow-x-hidden"
         >
-          {productFocus.active ? (
-            <h2 className="font-bold pb-8 text-2xl lg:text-5xl 3xl:text-8xl 3xl:m-8">
-              {productFocus.title}
-            </h2>
-          ) : (
-            <h2
-              className="font-bold pb-8 md:pt-6 text-2xl lg:text-5xl
-  md:text-4xl 3xl:text-8xl 3xl:mt-8"
-            >
-              Our Classic Cream Line Up
-            </h2>
-          )}
+          <h2 className="font-extrabold text-[5.25vw] text-[#9f9067] mb-12">
+            WHIPPED CREAM IS OUR THING
+          </h2>
           <div
             className={`${productFocus.active ? 'container justify-start' : 'justify-around items-center xs:h-[500px] h-[500px] lg:h-[600px] '} flex no-scrollbar box-border relative flex-col w-full mb-8`}
           >

@@ -31,8 +31,9 @@ export const ProductFocus = (props: any) => {
   rounded-xl lg:h-[700px] xl:h-[650px] w-full"
       >
         <div className="flex flex-col items-center justify-center">
-          <div className="relative w-[400px] h-[500px] m-4 rounded-xl">
+          <div className={`relative w-[400px] h-[500px] m-4 rounded-3xl overflow-hidden`}>
             <Image
+              className="rounded-3xl"
               alt={props.productFocus.foodImageAlt}
               className="object-cover"
               fill
@@ -65,10 +66,10 @@ export const ProductFocus = (props: any) => {
             data={props.productFocus.ingredients}
           />
           <button
-            className="text-xl  3xl:text-3xl md:text-sm m-4 md:m-2"
+            className="bg-[#9f9067] w-[225px] aspect-[4] text-white m-4 md:m-2 rounded-2xl font-extrabold text-xl"
             onClick={() => props.toggleProductFocus({ active: false })}
           >
-            Back
+            Product Selections
           </button>
         </div>
       </div>
