@@ -59,6 +59,13 @@ const Products: CollectionConfig = {
       relationTo: 'media',
       required: true,
     },
+    {
+      name: 'foodImage',
+      label: 'Food Image',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
   ],
 }
 
