@@ -80,3 +80,23 @@ export async function generateStaticParams() {
         </div>
         <RichText className=" text-sm md:text-xl lg:text-2xl 3xl:text-6xl" data={contentRichText} />
       </div>
+
+
+      <div className="flex flex-col overflow-visible w-full h-full gap-2 justify-end">
+        <div className="relative w-[150px] h-[33px] self-end mr-4">
+          <Image
+            alt="Copyright"
+            className="object-cover"
+            fill
+            src="/api/media/file/Copyright.svg"
+          />
+        </div>
+        <Link className="relative w-[500px] h-[52px] self-end mb-8 mr-4" href="/">
+          <Image
+            alt="Corporate Logo"
+            className="object-cover"
+            fill
+            src="/api/media/file/AFI_LOGO.svg"
+          />
+        </Link>
+      </div>

@@ -25,7 +25,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link href="/">
           <Logo loading="eager" priority="high" />
         </Link>
-        <nav className="flex flex-row self-center gap-4 text-2xl font-bold">
+        <nav className="hidden lg:visible flex flex-row self-center gap-4 text-2xl font-bold">
           <Link href="about">About Us</Link>
           <Link href="variety">Variety</Link>
           <Link href="where-to-buy">Where To Buy</Link>
@@ -35,11 +35,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           width={290}
           height={181}
           decoding="async"
-          className="h-[130px]"
+          className="h-[130px] hidden lg:visible"
           src="/api/media/file/Finest_Ingredients.svg"
         />
       </div>
-      <div className="absolute right-0 top-0 m-auto overflow-visible h-[250px] w-[400px]">
+      <div className="hidden lg:visible absolute right-0 top-0 m-auto overflow-visible h-[250px] w-[400px]">
         <Image
           className="object-cover overflow-visible"
           fill
