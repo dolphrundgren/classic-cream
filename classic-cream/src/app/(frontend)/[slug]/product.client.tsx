@@ -36,7 +36,7 @@ const ProductClient = (props: any) => {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article className="bg-white  w-full overflow-x-hidden">
+      <article className="bg-white w-full overflow-x-hidden">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
           className="flex flex-col relative w-full place-items-center
