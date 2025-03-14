@@ -58,7 +58,7 @@ export default async function Page({ params }: Args) {
         </div>
       </div>
       <div
-        className="h-[115px] z-0 -mb-[24px] w-full bg-[length:auto_110px]
+        className="h-[115px] -mb-[24px] w-full bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/Black_Ribbon-1.svg)]"
       ></div>
     </>

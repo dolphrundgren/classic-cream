@@ -1,6 +1,7 @@
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
 
 import type { Footer } from '@/payload-types'
 
@@ -14,20 +15,26 @@ export async function Footer() {
   const navItems = footerData?.navItems || []
 
   return (
-    <footer className="mt-auto border-t border-border bg-black dark:bg-card text-white">
-      <div className="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
-        <Link className="flex items-center" href="/">
-          <Logo className="invert dark:invert-0" />
-        </Link>
-
-        <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
-          <nav className="flex flex-col md:flex-row gap-4">
-            {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />
-            })}
-          </nav>
-        </div>
+    <footer className="bg-black dark:bg-card text-white h-[300px] relative">
+      <div className="absolute left-0 -ml-[100px] -mt-[550px] h-[700px] w-[1100px]">
+        <Image
+          alt="Pastry with whipped puff"
+          className="object-cover"
+          fill
+          src="/api/media/file/SC_Usage1_Resized.png"
+        />
       </div>
+      <div className="absolute bottom-0 right-0 mb-[73px] w-[150px] h-[33px] mr-4">
+        <Image alt="Copyright" className="object-cover" fill src="/api/media/file/Copyright.svg" />
+      </div>
+      <Link className="absolute bottom-0 right-0 h-[53px] w-[500px] mb-4 mr-4" href="/">
+        <Image
+          alt="Corporate Logo"
+          fill
+          className="object-cover overflow-visible"
+          src="/api/media/file/AFI_LOGO.svg"
+        />
+      </Link>
     </footer>
   )
 }
