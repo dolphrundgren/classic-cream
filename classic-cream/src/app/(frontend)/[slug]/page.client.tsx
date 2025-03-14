@@ -25,16 +25,16 @@ const PageClient = (props: any) => {
       <div
         className="mt-4 md:mt-8 lg:mt-10 xl:mt-15 container
   self-center flex flex-col lg:flex-row items-center justify-between
-  xs:h-[150px] h-[165px] md:h-[250px] lg:h-[350px] xl:h-[400px]
-  2xl:h-[635px] w-full mb-[70px]"
+  xs:h-[150px] h-[450px] md:h-[250px] lg:h-[350px] xl:h-[400px]
+  2xl:h-[635px] w-[350px] lg:w-full mb-[70px]"
       >
         <div
           className="flex flex-row items-center lg:justify-start
   justify-center rounded-3xl h-full w-full   bg-[#ffffff] relative
-  overflow-y-visible gap-4"
+  lg:overflow-y-visible gap-4"
         >
           <div
-            className="overflow-y-visible relative -mb-[50px]
+            className="hidden lg:block overflow-y-visible relative -mb-[50px]
   h-[650px] w-[440px] self-end z-40"
           >
             <Image
@@ -44,13 +44,16 @@ const PageClient = (props: any) => {
               src={contentFocus}
             />
           </div>
-          <div className="overflow-y-visible -ml-[200px] -mt-[45px] w-[200px] h-[200px] relative self-start z-30">
+          <div
+            className="overflow-y-visible -ml-[200px] -mt-[45px]
+  hidden lg:block lg:w-[200px] lg:h-[200px] relative self-start z-30"
+          >
             <Image className="object-cover overflow-y-visible" fill alt="badge" src={dairyBadge} />
           </div>
-          <div className="flex flex-col w-[500px] h-full">
+          <div className="relative flex flex-col w-[500px] h-full overflow-visible">
             <div
-              className="w-[450px] h-[85px] relative
-  justify-self-start -mt-[32px] mb-[55px]"
+              className="h-[35px] w-[200px] lg:w-[450px] lg:h-[85px] relative
+  self-center justify-self-start -mt-[15px] lg:-mt-[32px] lg:mb-[55px]"
             >
               <Image
                 className="object-cover"
@@ -60,15 +63,22 @@ const PageClient = (props: any) => {
                 src={premiumBadge}
               />
             </div>
-            {menuIsOpen ? <h1>On</h1> : <h1>Off</h1>}
             <RichText
-              className="text-xs md:text-xl lg:text-2xl xl:text-xl"
+              className="ml-4 mt-4 lg:mt-0 lg:ml-0 text-sm md:text-xl lg:text-2xl xl:text-xl"
               data={contentRichText}
             />
-            <button onClick={() => toggleMenu(menuIsOpen)}>Toggle</button>
+            <div className="absolute bottom-0 right-0 left-0 m-auto -mb-[50px] block lg:hidden overflow-visible h-[175px] w-[275px]">
+              <Image
+                className="object-cover"
+                fill
+                alt="Brownies with a
+    dollop"
+                src="/api/media/file/Pumpkin_Spice_usage1.png"
+              />
+            </div>
           </div>
-          <div className="grow flex flex-row place-content-end">
-            <div className="relative h-[565px] w-[315px] ">
+          <div className="hidden lg:grow lg:flex flex-row place-content-end">
+            <div className="relative lg:h-[565px] lg:w-[315px] ">
               <Image className="object-cover" fill alt="Hero Image" src={heroImage} />
             </div>
           </div>
