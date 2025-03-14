@@ -7,6 +7,7 @@ import Subscribe from './subscribe.client'
 import Message from './message.client'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { SocialArray } from '@/components/SocialArray/index'
 import { DestiniLocator, DestiniLocatorType } from '@spins/react-locator'
 
 type Args = {
@@ -29,12 +30,12 @@ export default async function Page({ params }: Args) {
       <PageClient pages={pages} />
       <ProductClient products={products} />
       <Script src="https://lets.shop/productFirstSnippet.js?id=destini-locator" />
-      <article className="h-[1100px] bg-[#9f9067]">
+      <article className="h-[1100px] bg-[#9f9067] flex flex-col justify-center">
         <div
           className="h-[115px] z-10 -mt-[24px] w-full bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/White_Ribbon-1.svg)]"
         ></div>
-        <h1 className="text-[4.5vw] text-white font-bold italic text-center">
+        <h1 className="text-[4.5vw] text-white m-8 font-bold italic text-center">
           FIND SOME CLASSIC CREAM NEAR YOU
         </h1>
         <div
@@ -43,13 +44,23 @@ export default async function Page({ params }: Args) {
           locator-name="Classic Cream Where To Buy"
           alpha-code="11DA"
           client-id="classiccream"
-          className="container h-[800px] mt-8 z-0"
+          className="container h-[800px] z-0 mb-8 rounded-2xl overflow-hidden"
         />
         <div
-          className="h-[115px] z-10 -mb-[24px] w-full bg-[length:auto_110px]
+          className="h-[115px] self-center z-10 -mb-[18px] w-full bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/White_Ribbon-1.svg)]"
         ></div>
       </article>
+      <div className="container h-[500px] flex flex-row justify-end">
+        <div className="h-[300px] w-[400px] flex flex-col justify-center">
+          <h4 className="text-[3.5vw] font-bold text-[#9f9067] text-center">FOLLOW US!</h4>
+          <SocialArray size="large" />
+        </div>
+      </div>
+      <div
+        className="h-[115px] z-0 -mb-[24px] w-full bg-[length:auto_110px]
+    bg-repeat-x bg-[url(/api/media/file/Black_Ribbon-1.svg)]"
+      ></div>
     </>
   )
 }
