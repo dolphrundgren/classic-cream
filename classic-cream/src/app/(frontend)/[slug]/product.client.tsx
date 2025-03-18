@@ -48,7 +48,7 @@ const ProductClient = (props: any) => {
             WHIPPED CREAM IS OUR THING
           </h2>
           <div
-            className={`${productFocus.active ? ' container' : ' xs:h-[500px] h-[575px] lg:h-[600px] container'} no-scrollbar box-border relative  mb-8 overflow-x-scroll`}
+            className={`${productFocus.active ? 'container overflow-clip' : '  container overflow-x-scroll'} no-scrollbar box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px]`}
           >
             <ProductFocus
               className={`${

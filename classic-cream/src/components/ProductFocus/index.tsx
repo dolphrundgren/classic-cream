@@ -31,7 +31,7 @@ export const ProductFocus = (props: any) => {
   rounded-xl lg:h-[700px] xl:h-[650px] w-full"
       >
         <div className="flex flex-col items-center justify-center">
-          <div className={`relative w-[400px] h-[500px] m-4 rounded-3xl overflow-hidden`}>
+          <div className="hidden lg:block relative w-[400px] h-[500px] m-4 rounded-3xl overflow-hidden">
             <Image
               alt={props.productFocus.foodImageAlt}
               className="object-cover"
@@ -52,14 +52,12 @@ export const ProductFocus = (props: any) => {
           >
             {props.productFocus.title}
           </h4>
-          <div className="relative h-[260px] w-full">
-            <Image
-              alt={props.productFocus.nutritionFactImageAlt}
-              className="object-cover"
-              fill
-              src={props.productFocus.nutritionFactImage}
-            />
-          </div>
+          <img
+            alt={props.productFocus.nutritionFactImageAlt}
+            width="full"
+            height="auto"
+            src={props.productFocus.nutritionFactImage}
+          />
           <RichText
             className="text-sm lg:text-sm md:text-xs"
             data={props.productFocus.ingredients}
