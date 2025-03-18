@@ -26,7 +26,7 @@ const PageClient = (props: any) => {
       <div
         className="mt-4 md:mt-8 lg:mt-10 xl:mt-15 container
   self-center flex flex-col lg:flex-row items-center justify-between
-  xs:h-[475px] h-[450px] md:h-[550px] lg:h-[350px] xl:h-[600px]
+  xs:h-[475px] h-[450px] md:h-[550px] lg:h-[700px] xl:h-[600px]
   2xl:h-[635px]   mb-[70px] "
       >
         <div
@@ -36,7 +36,8 @@ const PageClient = (props: any) => {
   md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500"
         >
           <div
-            className="hidden lg:block overflow-y-visible relative -mb-[50px]
+            className="hidden xl:block overflow-y-visible relative
+  -mb-[50px] 
   xl:h-[590px] xl:w-[400px] 2xl:h-[650px] 2xl:w-[440px] self-end z-40"
           >
             <Image
@@ -48,14 +49,14 @@ const PageClient = (props: any) => {
           </div>
           <div
             className="overflow-y-visible -ml-[200px] -mt-[45px]
-  hidden lg:block lg:w-[200px] lg:h-[200px] relative self-start z-30"
+  hidden xl:block lg:w-[200px] lg:h-[200px] relative self-start z-30"
           >
             <Image className="object-cover overflow-y-visible" fill alt="badge" src={dairyBadge} />
           </div>
-          <div className="relative flex flex-col w-[500px] h-full overflow-visible">
+          <div className="relative lg:ml-16 2xl:ml-0 flex flex-col w-[500px] h-full overflow-visible">
             <div
               className="h-[35px] w-[200px] md:h-[55px] md:w-[300px] lg:w-[450px] lg:h-[85px] relative
-  self-center justify-self-start -mt-[15px] lg:-mt-[32px] lg:mb-[55px]"
+  self-center justify-self-start  -mt-[15px] lg:-mt-[32px] lg:mb-[55px]"
             >
               <Image
                 className="object-cover"
@@ -86,7 +87,7 @@ const PageClient = (props: any) => {
           </div>
           <div className="hidden lg:grow lg:flex flex-row place-content-end">
             <div
-              className="relative lg:h-[200px] lg:w-[250px]
+              className="relative lg:h-[585px] lg:w-[325px]
   xl:h-[500px] xl:w-[275px] 2xl:h-[565px] 2xl:w-[315px] "
             >
               <Image className="object-cover" fill alt="Hero Image" src={heroImage} />
