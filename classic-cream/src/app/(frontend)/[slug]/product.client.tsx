@@ -36,17 +36,19 @@ const ProductClient = (props: any) => {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article className="bg-white w-full overflow-x-hidden">
+      <article className="xs:bg-red-500 md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500 bg-white overflow-x-hidden w-full">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
-          className="flex flex-col relative w-full place-items-center
-  overflow-x-hidden"
+          className="flex flex-col relative place-items-center overflow-x-hidden"
         >
-          <h2 className="font-extrabold text-[5.25vw] text-[#9f9067] mb-12">
+          <h2
+            className="font-extrabold text-wrap text-[10vw]
+  lg:text-[5.25vw] text-[#9f9067] mb-12 text-center"
+          >
             WHIPPED CREAM IS OUR THING
           </h2>
           <div
-            className={`${productFocus.active ? 'container justify-start' : 'justify-around items-center xs:h-[500px] h-[500px] lg:h-[600px] '} flex no-scrollbar box-border relative flex-col w-full mb-8`}
+            className={`${productFocus.active ? ' container' : ' xs:h-[500px] h-[575px] lg:h-[600px] container'} no-scrollbar box-border relative  mb-8 overflow-x-scroll`}
           >
             <ProductFocus
               className={`${
@@ -58,9 +60,9 @@ const ProductClient = (props: any) => {
             <div
               className={`${
                 productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              } z-0 duration-200 ease-in-out absolute top-0 right-0
-  left-0 bottom-0 m-auto flex snap-x gap-8 3xl:gap-32 flex-row pl-8 pr-8
-  overflow-x-scroll no-scrollbar items-center xl:justify-start 2xl:justify-center`}
+              } z-0 duration-200 ease-in-out absolute lg:top-0 lg:right-0
+  lg:left-0 lg:bottom-0 m-auto flex flex-row  snap-x gap-8 3xl:gap-32 pl-8 pr-8
+  overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
             >
               <ProductArray
                 productFocus={productFocus}

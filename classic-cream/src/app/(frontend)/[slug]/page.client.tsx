@@ -32,8 +32,7 @@ const PageClient = (props: any) => {
         <div
           className="flex flex-row items-center lg:justify-start
   justify-center rounded-3xl h-full w-full   bg-[#ffffff] relative
-  lg:overflow-y-visible gap-4 xs:bg-red-500
-  md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500"
+  lg:overflow-y-visible gap-4 "
         >
           <div
             className="hidden xl:block overflow-y-visible relative
