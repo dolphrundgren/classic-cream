@@ -16,7 +16,10 @@ export async function Footer() {
 
   return (
     <footer className="bg-black dark:bg-card text-white h-[300px] relative">
-      <div className="absolute left-0 -ml-[100px] -mt-[550px] h-[700px] w-[1100px]">
+      <div
+        className="absolute left-0 -ml-[100px] -mt-[550px]
+    md:h-[350px] md:w-[525px] xl:h-[700px] xl:w-[1100px]"
+      >
         <Image
           alt="Pastry with whipped puff"
           className="object-cover"
