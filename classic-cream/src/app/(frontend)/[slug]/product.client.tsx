@@ -47,42 +47,40 @@ const ProductClient = (props: any) => {
           >
             WHIPPED CREAM IS OUR THING
           </h2>
-          <div
-            className={`${productFocus.active ? 'container overflow-clip' : '  container overflow-x-scroll'} no-scrollbar
-  box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px] 2xl:h-[675px]`}
-          >
-            <ProductFocus
-              className={`${
-                productFocus.active ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
-              toggleProductFocus={toggleProductFocus}
-              productFocus={productFocus}
-            />
+          <div className="container flex flex-row">
+            <div className="hidden self-center -ml-16 lg:block ">
+              <SvgArrow isRight={false} />
+            </div>
             <div
-              className={`${
-                productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              } z-0 duration-200 ease-in-out absolute lg:top-0 lg:right-0
-  lg:left-0 lg:bottom-0 m-auto flex flex-row  snap-x gap-8 3xl:gap-32 pl-8 pr-8
-  overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
+              className={`${productFocus.active ? 'overflow-clip' : '  overflow-x-scroll'} no-scrollbar
+  box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px]
+  2xl:h-[675px] grow`}
             >
-              <ProductArray
-                productFocus={productFocus}
+              <ProductFocus
+                className={`${
+                  productFocus.active ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
                 toggleProductFocus={toggleProductFocus}
-                products={props.products}
-                windowWidth={windowWidth}
+                productFocus={productFocus}
               />
+              <div
+                className={`${
+                  productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                } z-0 duration-200 ease-in-out absolute  m-auto flex flex-row  snap-x gap-8 3xl:gap-32 pl-8 pr-8
+  overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
+              >
+                <ProductArray
+                  productFocus={productFocus}
+                  toggleProductFocus={toggleProductFocus}
+                  products={props.products}
+                  windowWidth={windowWidth}
+                />
+              </div>
+            </div>
+            <div className="hidden self-center -mr:16 lg:block">
+              <SvgArrow isRight={true} />
             </div>
           </div>
-          {windowWidth < 602 ? null : windowWidth > 1500 ? null : productFocus.active ? null : (
-            <>
-              <div className="absolute bottom-[300px] right-0  m-auto">
-                <SvgArrow isRight={true} />
-              </div>
-              <div className={`absolute bottom-[300px] left-0 m-auto`}>
-                <SvgArrow isRight={false} />
-              </div>
-            </>
-          )}
         </div>
       </article>
     )
