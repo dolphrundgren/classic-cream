@@ -51,9 +51,14 @@ export default async function Page({ params }: Args) {
     bg-repeat-x bg-[url(/api/media/file/White_Ribbon-1.svg)]"
         ></div>
       </article>
-      <div className="container h-[500px] flex flex-row justify-end">
-        <div className="h-[300px] w-[400px] flex flex-col justify-center">
-          <h4 className="text-[3.5vw] font-bold text-[#9f9067] text-center">FOLLOW US!</h4>
+      <div
+        className="container h-[500px] 2xl:h-[600px] flex flex-row
+  justify-end xs:bg-red-500 md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500"
+      >
+        <div className="h-[300px] w-[400px] 2xl:mt-32 flex flex-col justify-center">
+          <h4 className="text-[3.5vw] 2xl:text-[1.5vw] font-bold text-[#9f9067] text-center">
+            FOLLOW US!
+          </h4>
           <SocialArray size="large" />
         </div>
       </div>

@@ -36,7 +36,7 @@ const ProductClient = (props: any) => {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article className="xs:bg-red-500 md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500 bg-white overflow-x-hidden w-full">
+      <article className=" bg-white overflow-x-hidden w-full">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
           className="flex flex-col relative place-items-center overflow-x-hidden"
@@ -48,7 +48,8 @@ const ProductClient = (props: any) => {
             WHIPPED CREAM IS OUR THING
           </h2>
           <div
-            className={`${productFocus.active ? 'container overflow-clip' : '  container overflow-x-scroll'} no-scrollbar box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px]`}
+            className={`${productFocus.active ? 'container overflow-clip' : '  container overflow-x-scroll'} no-scrollbar
+  box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px] 2xl:h-[675px]`}
           >
             <ProductFocus
               className={`${
@@ -71,17 +72,17 @@ const ProductClient = (props: any) => {
                 windowWidth={windowWidth}
               />
             </div>
-            {windowWidth < 602 ? null : windowWidth > 1500 ? null : productFocus.active ? null : (
-              <>
-                <div className="absolute top-[200px] right-0  m-auto">
-                  <SvgArrow isRight={true} />
-                </div>
-                <div className={`absolute top-[200px] left-0 m-auto`}>
-                  <SvgArrow isRight={false} />
-                </div>
-              </>
-            )}
           </div>
+          {windowWidth < 602 ? null : windowWidth > 1500 ? null : productFocus.active ? null : (
+            <>
+              <div className="absolute bottom-[300px] right-0  m-auto">
+                <SvgArrow isRight={true} />
+              </div>
+              <div className={`absolute bottom-[300px] left-0 m-auto`}>
+                <SvgArrow isRight={false} />
+              </div>
+            </>
+          )}
         </div>
       </article>
     )

@@ -32,11 +32,11 @@ export const ProductArray = (props: any) => {
           onClick={
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
-          className="w-[250px] xs:w-[250px] md:w-[250px] lg:w-[300px] snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-end"
+          className="w-[250px] xs:w-[250px] md:w-[250px] lg:w-[300px] 2xl:w-[350px] snap-center  bg-gray-200 rounded-xl flex flex-col items-center justify-end"
         >
           <div
             className="relative h-[500px] w-[125px] xs:h-[400px]
-  xs:w-[100px]  lg:w-[150px] lg:h-[525px]"
+  xs:w-[100px]  lg:w-[150px] 2xl:w-[150px] lg:h-[525px]"
           >
             <Image
               className="object-cover"
