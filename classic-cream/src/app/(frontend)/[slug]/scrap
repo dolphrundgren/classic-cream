@@ -100,3 +100,37 @@ export async function generateStaticParams() {
           />
         </Link>
       </div>
+      <div className="absolute bottom-0 right-0 mb-[73px]  md:w-[150px] md:h-[33px] mr-4">
+        <Image alt="Copyright" className="object-cover" fill src="/api/media/file/Copyright.svg" />
+      </div>
+
+      <div className="absolute bottom-0 right-0 mb-[73px]  md:w-[150px] md:h-[33px] mr-4">
+        <Image alt="Copyright" className="object-cover" fill src="/api/media/file/Copyright.svg" />
+      </div>
+      <Link className="absolute bottom-0 right-0 h-[53px] w-[500px] mb-4 mr-4" href="/">
+        <Image
+          alt="Corporate Logo"
+          fill
+          className="object-cover overflow-visible"
+          src="/api/media/file/AFI_LOGO.svg"
+        />
+      </Link>
+      <div
+        className="absolute left-0 -ml-[100px] -mt-[550px] lg:-mt-[450px] 
+    md:h-[350px] md:w-[525px] lg:h-[500px] lg:w-[800px] xl:h-[700px] xl:w-[1100px]"
+      >
+        <Image
+          alt="Pastry with whipped puff"
+          className="object-cover"
+          fill
+          src="/api/media/file/SC_Usage1_Resized.png"
+        />
+      </div>
+      <div className="absolute -left-32 -top-[400px] m-auto w-2/3 h-full">
+        <img
+          alt="Pastry with whipped puff"
+          width="full"
+          height="auto"
+          src="/api/media/file/SC_Usage1_Resized.png"
+        />
+      </div>

@@ -15,29 +15,17 @@ export async function Footer() {
   const navItems = footerData?.navItems || []
 
   return (
-    <footer className="bg-black dark:bg-card text-white h-[300px] relative">
+    <footer
+      className="bg-black dark:bg-card text-white xs:h-[200px] h-[300px]
+    lg:h-[250px] relative "
+    >
       <div
-        className="absolute left-0 -ml-[100px] -mt-[550px]
-    md:h-[350px] md:w-[525px] xl:h-[700px] xl:w-[1100px]"
+        className="absolute right-0 bottom-0 w-1/2 h-1/2 
+    flex flex-col justify-end items-end m-5"
       >
-        <Image
-          alt="Pastry with whipped puff"
-          className="object-cover"
-          fill
-          src="/api/media/file/SC_Usage1_Resized.png"
-        />
+        <h1 className="text-xl">&#169; 2025</h1>
+        <img alt="Corporate Logo" width="full" height="auto" src="/api/media/file/AFI_LOGO.svg" />
       </div>
-      <div className="absolute bottom-0 right-0 mb-[73px] w-[150px] h-[33px] mr-4">
-        <Image alt="Copyright" className="object-cover" fill src="/api/media/file/Copyright.svg" />
-      </div>
-      <Link className="absolute bottom-0 right-0 h-[53px] w-[500px] mb-4 mr-4" href="/">
-        <Image
-          alt="Corporate Logo"
-          fill
-          className="object-cover overflow-visible"
-          src="/api/media/file/AFI_LOGO.svg"
-        />
-      </Link>
     </footer>
   )
 }

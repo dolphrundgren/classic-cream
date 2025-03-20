@@ -2,9 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 
 export const SocialArray = (props: any) => {
-  const iconStyle = `relative ${props.size === 'large' ? 'w-[150px] h-[150px]' : 'w-[25px] h-[25px]'}`
+  const iconStyle = `relative ${props.size === 'large' ? 'w-[100px] h-[100px] lg:w-[150px] lg:h-[150px]' : 'w-[25px] h-[25px]'}`
   return (
-    <div className="flex flex-row w-full h-full justify-around">
+    <div className="flex flex-row w-full h-full gap-8 justify-center">
       <div className={iconStyle}>
         <Image
           alt="Facebook Logo"

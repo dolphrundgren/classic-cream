@@ -52,11 +52,22 @@ export default async function Page({ params }: Args) {
         ></div>
       </article>
       <div
-        className="container h-[500px] 2xl:h-[600px] flex flex-row
-  justify-end xs:bg-red-500 md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500"
+        className="w-full h-[250px] lg:h-[500px] 2xl:h-[600px] flex flex-row
+   xs:bg-red-500 md:bg-green-500 lg:bg-purple-500 xl:bg-yellow-500 2xl:bg-orange-500"
       >
-        <div className="h-[300px] w-[400px] 2xl:mt-32 flex flex-col justify-center">
-          <h4 className="text-[3.5vw] 2xl:text-[1.5vw] font-bold text-[#9f9067] text-center">
+        <div className="hidden md:block z-40 w-3/4 h-auto flex-row self-end -ml-64 -mb-32">
+          <img
+            alt="Pastry with whipped puff"
+            width="full"
+            height="auto"
+            src="/api/media/file/SC_Usage1_Resized.png"
+          />
+        </div>
+        <div
+          className="h-[300px] w-[400px] 2xl:w-[600px] z-20 mt-18
+  2xl:mt-32 flex flex-col self-end justify-self-end"
+        >
+          <h4 className="text-[8vw] lg:text-[5vw] xl:text-[4vw] 2xl:text-[2.5vw] font-bold text-[#9f9067] text-center">
             FOLLOW US!
           </h4>
           <SocialArray size="large" />
