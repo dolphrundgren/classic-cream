@@ -66,7 +66,8 @@ const ProductClient = (props: any) => {
               <div
                 className={`${
                   productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                } z-0 duration-200 ease-in-out absolute  m-auto flex flex-row  snap-x gap-8 3xl:gap-32 pl-8 pr-8
+                } z-0 duration-200 ease-in-out absolute  m-auto flex
+  flex-row  snap-x snap-proximity gap-8 3xl:gap-32 pl-8 pr-8
   overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
               >
                 <ProductArray
