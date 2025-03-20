@@ -36,10 +36,10 @@ export const ProductArray = (props: any) => {
         >
           <div
             className="relative h-[500px] w-[125px] xs:h-[400px]
-  xs:w-[100px]  lg:w-[150px] 2xl:w-[150px] lg:h-[525px]"
+  xs:w-[100px]  snap-center lg:w-[150px] 2xl:w-[150px] lg:h-[525px]"
           >
             <Image
-              className="object-cover"
+              className="snap-center object-cover"
               fill
               alt={doc.canFrontImage.alt}
               src={doc.canFrontImage.url}

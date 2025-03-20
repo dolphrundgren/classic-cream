@@ -20,7 +20,7 @@ export default function Message(props: any) {
   const [state, formAction, pending] = useActionState(createMessage, initialState)
   useEffect(() => {
     if (state.complete) {
-      let completionLag = setTimeout(() => props.setContactState(false), 2000)
+      const completionLag = setTimeout(() => props.setContactState(false), 2000)
 
       return () => {
         clearTimeout(completionLag)
