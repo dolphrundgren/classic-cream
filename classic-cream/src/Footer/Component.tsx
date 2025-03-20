@@ -16,7 +16,7 @@ export async function Footer() {
 
   return (
     <footer
-      className="bg-black dark:bg-card text-white xs:h-[200px] h-[300px]
+      className="bg-black dark:bg-card text-white xs:h-[200px] h-[200px]
     lg:h-[250px] relative "
     >
       <div

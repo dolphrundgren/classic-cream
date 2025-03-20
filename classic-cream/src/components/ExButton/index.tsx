@@ -3,14 +3,14 @@
 import React from 'react'
 
 interface SvgExButton {
-  toggleProductFocus: any
+  setContactState: any
 }
 
 export const SvgExButton = (props: SvgExButton) => {
   const rightEx = 'M 2 2 L 37 37 L 40 37 L 5 2'
   const leftEx = 'M 0 38 L 38 0 L 38 3 L 3 38'
   return (
-    <div onClick={() => props.toggleProductFocus(false)} className="w-24  h-24 relative">
+    <div onClick={() => props.setContactState(false)} className="w-24  h-24 relative">
       <svg
         className="z-80 absolute top-0 right-0 left-0 bottom-0 m-auto"
         width="80"

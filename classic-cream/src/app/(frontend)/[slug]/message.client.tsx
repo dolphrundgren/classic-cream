@@ -1,7 +1,8 @@
 'use client'
-import React, { useActionState } from 'react'
+import React, { useActionState, useEffect } from 'react'
 import Form from 'next/form'
 import { createMessageOrSubscription } from '@/app/(frontend)/comms/actions'
+import { SvgExButton } from '@/components/ExButton/index'
 
 const initialState = {
   error: false,
@@ -17,21 +18,43 @@ const createMessage = createMessageOrSubscription.bind(null, { isMessage: true }
 
 export default function Message(props: any) {
   const [state, formAction, pending] = useActionState(createMessage, initialState)
-  if (state.complete) {
-    return <h1>{state.serverMessage}</h1>
-  } else {
-    return (
-      <>
-        <h1>Subscribe</h1>
-        {state.error ? <h2>{state.serverMessage}</h2> : null}
-        <Form action={formAction}>
-          <input required={true} className="border" name="email" />
-          <input className="border" name="firstName" />
-          <input className="border" name="lastName" />
-          <input className="border" name="clientMessage" />
-          <button type="submit">Test</button>
-        </Form>
-      </>
-    )
-  }
+  useEffect(() => {
+    if (state.complete) {
+      let completionLag = setTimeout(() => props.setContactState(false), 2000)
+
+      return () => {
+        clearTimeout(completionLag)
+      }
+    }
+  }, [state.complete])
+
+  return (
+    <div
+      className="w-full p-4 h-full fixed m-auto bg-white flex gap-4
+    flex-col"
+    >
+      <button
+        className="self-end bg-[#9f9067] w-1/3 rounded-xl text-xl"
+        onClick={() => props.setContactState(false)}
+      >
+        Back
+      </button>
+      <h1 className="text-2xl text-center">Reach out to us!</h1>
+      {state.error ? <h2>{state.serverMessage}</h2> : null}
+      <Form className="flex flex-col gap-4 justify-start" action={formAction}>
+        <h4>Email:</h4>
+        <input required={true} className="border" name="email" />
+        <h4>First Name:</h4>
+        <input className="border" name="firstName" />
+        <h4>Last Name:</h4>
+        <input className="border" name="lastName" />
+        <h4>Message:</h4>
+        <textarea className="h-32 border" name="clientMessage" />
+        <button className="font-bold text-2xl" type="submit">
+          Submit
+        </button>
+      </Form>
+      {state.complete ? <h1 className="text-xl">{state.serverMessage}</h1> : null}
+    </div>
+  )
 }
