@@ -111,7 +111,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       </div>
       <div
         className="hidden lg:block absolute right-0 top-0 m-auto
-    lg:w-16 xl:w-36 h-auto mt-4 lg:-mr-8  2xl:-mr-4"
+    lg:w-32 xl:w-36 h-auto mt-4 lg:-mr-8  2xl:-mr-4"
       >
         <SocialArray size="small" />
       </div>
