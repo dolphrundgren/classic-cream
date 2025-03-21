@@ -1,8 +1,9 @@
 'use client'
-import React, { useActionState, useEffect } from 'react'
+import React, { useActionState, useEffect, useContext } from 'react'
 import Form from 'next/form'
 import { createMessageOrSubscription } from '@/app/(frontend)/comms/actions'
 import { SvgExButton } from '@/components/ExButton/index'
+import { DialogContext } from '@/providers/Dialog'
 
 const initialState = {
   error: false,
@@ -17,10 +18,11 @@ const initialState = {
 const createMessage = createMessageOrSubscription.bind(null, { isMessage: true })
 
 export default function Message(props: any) {
+  const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   const [state, formAction, pending] = useActionState(createMessage, initialState)
   useEffect(() => {
     if (state.complete) {
-      const completionLag = setTimeout(() => props.setContactState(false), 2000)
+      const completionLag = setTimeout(() => toggleDialog(dialogIsOpen), 2000)
 
       return () => {
         clearTimeout(completionLag)
@@ -35,7 +37,7 @@ export default function Message(props: any) {
     >
       <button
         className="self-end bg-[#9f9067] w-1/3 rounded-xl text-xl"
-        onClick={() => props.setContactState(false)}
+        onClick={() => toggleDialog(dialogIsOpen)}
       >
         Back
       </button>

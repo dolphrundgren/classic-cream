@@ -134,3 +134,16 @@ export async function generateStaticParams() {
           src="/api/media/file/SC_Usage1_Resized.png"
         />
       </div>
+
+
+
+
+
+correction list:
++ scroll lock needed on contact form
+- social icons needed on top-right desktop view
+- links needed for social icons and corporate logo
+- nav links needed for website navigation
+- favicon needed
+- Proper metadata needed for scraping.
+- Copy needs to be mapped out and assigned a hierarchy

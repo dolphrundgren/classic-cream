@@ -19,13 +19,14 @@ export async function Footer() {
       className="bg-black dark:bg-card text-white xs:h-[200px] h-[200px]
     lg:h-[250px] relative "
     >
-      <div
+      <a
+        href="https://www.alamancefoods.com/"
         className="absolute right-0 bottom-0 w-1/2 h-1/2 
     flex flex-col justify-end items-end m-5"
       >
         <h1 className="text-xl">&#169; 2025</h1>
         <img alt="Corporate Logo" width="full" height="auto" src="/api/media/file/AFI_LOGO.svg" />
-      </div>
+      </a>
     </footer>
   )
 }

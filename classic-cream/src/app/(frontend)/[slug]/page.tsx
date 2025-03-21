@@ -27,15 +27,15 @@ export default async function Page({ params }: Args) {
   const { products, pages } = await retrieveData()
   return (
     <>
-      <PageClient pages={pages} />
-      <ProductClient products={products} />
+      <PageClient id="about" pages={pages} />
+      <ProductClient id="variety" products={products} />
       <Script src="https://lets.shop/productFirstSnippet.js?id=destini-locator" />
-      <article className="h-[1100px] bg-[#9f9067] flex flex-col justify-center">
+      <article id="where-to-buy" className="h-[1100px] bg-[#9f9067] flex flex-col justify-center">
         <div
           className="h-[115px] z-10 -mt-[24px] w-full bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/White_Ribbon-1.svg)]"
         ></div>
-        <h1 className="text-[4.5vw] text-white m-8 font-bold italic text-center">
+        <h1 className="xs:text-[5.5vw] text-[4.5vw] text-white m-8 font-bold italic text-center">
           FIND SOME CLASSIC CREAM NEAR YOU
         </h1>
         <div

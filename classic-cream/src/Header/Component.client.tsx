@@ -2,12 +2,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState, useContext } from 'react'
-import { MenuContext } from '@/providers/Menu'
+import { DialogContext } from '@/providers/Dialog'
 import Image from 'next/image'
 import * as Dialog from '@radix-ui/react-dialog'
 import type { Header } from '@/payload-types'
 import Message from '@/app/(frontend)/[slug]/message.client'
-
+import { SocialArray } from '@/components/SocialArray/index'
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
 
@@ -17,22 +17,23 @@ interface HeaderClientProps {
 
 const Contact = (props: any) => {
   return (
-    <div
-      className="bg-blue-500 bg-opacity-75 top-0 bottom-0 left-0 right-0 fixed
+    <dialog
+      className="bg-opacity-75 top-0 bottom-0 left-0 right-0 fixed
   w-full h-full flex flex-col place-items-center"
     >
-      <Message setContactState={props.setContactState} />
-    </div>
+      <Message />
+    </dialog>
   )
 }
 
 const MobileNav = (props: any) => {
+  const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   return (
     <nav className="h-64 w-full flex flex-col gap-4 text-xl justify-start items-center">
-      <Link href="about">About Us</Link>
-      <Link href="variety">Variety</Link>
-      <Link href="where-to-buy">Where To Buy</Link>
-      <button onClick={() => props.setContactState(true)}>Contact</button>
+      <Link href="About">About Us</Link>
+      <Link href="Products">Variety</Link>
+      <Link href="Purchase">Where To Buy</Link>
+      <button onClick={() => toggleDialog(dialogIsOpen)}>Contact</button>
     </nav>
   )
 }
@@ -40,11 +41,23 @@ const MobileNav = (props: any) => {
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const pathname = usePathname()
-  const { menuIsOpen, toggleMenu } = useContext(MenuContext)
-  const [contactIsOpen, setContactState] = useState(false)
+  const [menuIsOpen, setMenuState] = useState(false)
+  const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
+
+  useEffect(() => {
+    if (dialogIsOpen) {
+      document.body.classList.add('overflow-y-hidden')
+    } else {
+      document.body.classList.remove('overflow-y-hidden')
+    }
+  }, [dialogIsOpen])
+
+  const toggleMenu = (menuIsOpen: boolean) => {
+    setMenuState(!menuIsOpen)
+  }
 
   return (
-    <header className="container h-38 xl:h-40 2xl:h-48 relative z-20">
+    <header className="container h-38 xl:h-45 2xl:h-48 relative z-20">
       <div className="py-8 flex flex-row lg:justify-start lg:gap-4 justify-between">
         <Link className="w-1/2 lg:w-1/4" href="/">
           <img
@@ -69,12 +82,12 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           className="hidden lg:flex flex-row self-center gap-4
     lg:text-xl xl:text-2xl font-bold"
         >
-          <Link href="about">About Us</Link>
-          <Link href="variety">Variety</Link>
-          <Link href="where-to-buy">Where To Buy</Link>
+          <Link href="/#about">About Us</Link>
+          <Link href="/#variety">Variety</Link>
+          <Link href="/#where-to-buy">Where To Buy</Link>
         </nav>
         <div
-          className="relative hidden lg:block h-[90px] w-[170px]
+          className="relative hidden lg:block lg:h-[80px] lg:w-[150px]
     xl:h-[100px] xl:w-[200px] 2xl:h-[125px] 2xl:w-[225px]"
         >
           <Image
@@ -87,7 +100,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       </div>
       <div
         className="hidden lg:block absolute right-0 top-0 m-auto
-    overflow-visible mt-4 lg:h-[150px] lg:w-[250px] xl:h-[175px] xl:w-[275px] 2xl:h-[250px] 2xl:w-[400px]"
+    overflow-visible mt-4 lg:h-[150px] lg:w-[250px] xl:h-[175px] xl:w-[285px] 2xl:h-[250px] 2xl:w-[400px]"
       >
         <Image
           className="object-cover overflow-visible"
@@ -96,8 +109,14 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           src="/api/media/file/Pumpkin_Spice_usage1.png"
         />
       </div>
-      {menuIsOpen ? <MobileNav setContactState={setContactState} /> : null}
-      {contactIsOpen ? <Contact setContactState={setContactState} /> : null}
+      <div
+        className="hidden lg:block absolute right-0 top-0 m-auto
+    lg:w-16 xl:w-36 h-auto mt-4 lg:-mr-8  2xl:-mr-4"
+      >
+        <SocialArray size="small" />
+      </div>
+      {menuIsOpen ? <MobileNav /> : null}
+      {dialogIsOpen ? <Contact /> : null}
     </header>
   )
 }

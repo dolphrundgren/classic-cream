@@ -2,10 +2,10 @@
 import React, { useContext } from 'react'
 import Image from 'next/image'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { MenuContext } from '@/providers/Menu'
+import { DialogContext } from '@/providers/Dialog'
 
 const PageClient = (props: any) => {
-  const { menuIsOpen, toggleMenu } = useContext(MenuContext)
+  const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   const pageData = props.pages.docs[0]
   //Hero data
   const heroImage = pageData.hero.media.sizes.medium.url

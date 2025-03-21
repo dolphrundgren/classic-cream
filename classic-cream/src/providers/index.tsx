@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { ThemeProvider } from './Theme'
-import { MenuProvider } from './Menu'
+import { DialogProvider } from './Dialog'
 
 export const Providers: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
   return (
-    <MenuProvider>
+    <DialogProvider>
       <ThemeProvider>{children}</ThemeProvider>
-    </MenuProvider>
+    </DialogProvider>
   )
 }
