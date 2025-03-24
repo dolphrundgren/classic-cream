@@ -52,8 +52,11 @@ export default async function Page({ params }: Args) {
           className="container h-[800px] z-0 mb-8 rounded-2xl overflow-hidden"
         />
       </article>
-      <div className="w-full xs:h-[200px] h-[250px] lg:h-[500px] 2xl:h-[600px] flex flex-row">
-        <div className="hidden md:block z-40 w-3/4 h-auto flex-row self-end -ml-64 -mb-32">
+      <div
+        className="container xs:h-[200px] h-[250px] lg:h-[500px]
+  2xl:h-[600px] flex flex-row justify-between"
+      >
+        <div className="hidden md:block z-40 w-1/2 h-auto flex-row self-end -ml-64 -mb-32">
           <img
             alt="Pastry with whipped puff"
             width="full"
