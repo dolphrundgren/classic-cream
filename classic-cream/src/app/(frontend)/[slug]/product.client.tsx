@@ -39,14 +39,15 @@ const ProductClient = (props: any) => {
       <article id="variety" className="scroll-smooth bg-white overflow-x-hidden w-full">
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
-          className="flex flex-col relative place-items-center overflow-x-hidden"
+          className="container flex flex-col relative place-items-center overflow-x-hidden"
         >
-          <h2
-            className="font-extrabold text-wrap text-[10vw]
-  lg:text-[5.25vw] text-[#9f9067] mb-12 text-center"
-          >
-            WHIPPED CREAM IS OUR THING
-          </h2>
+          <img
+            alt="Whipped Cream Is Our Thing"
+            className="mb-8"
+            width="full"
+            height-auto
+            src="/api/media/file/Whipped_Cream_Thing.svg"
+          />
           <div className="container flex flex-row">
             <div className="hidden self-center -ml-16 lg:block ">
               <SvgArrow isRight={false} />
