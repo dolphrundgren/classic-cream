@@ -17,7 +17,7 @@ const ProductClient = (props: any) => {
   })
   const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
   const fetchURL = `${baseURL}/api/products/`
-  const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'invisible' : 'bg-white'}`
+  const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'hidden' : 'bg-white'}`
 
   const toggleProductFocus = (toggleValue: ProductFocusInterface) => {
     setProductFocus(toggleValue)
@@ -69,11 +69,7 @@ const ProductClient = (props: any) => {
               />
               <div
                 className={`${
-                  dialogIsOpen
-                    ? 'invisible'
-                    : productFocus.active
-                      ? 'opacity-0 pointer-events-none'
-                      : 'opacity-100'
+                  productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 } xs:w-[1500px] h-full z-0 duration-200 ease-in-out absolute  m-auto flex
   flex-row  snap-x snap-mandatory gap-8 3xl:gap-32 pl-8 pr-8
   overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
