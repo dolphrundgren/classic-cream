@@ -36,7 +36,7 @@ export const ProductArray = (props: any) => {
         >
           <div
             className="relative h-[500px] w-[125px] xs:h-[400px]
-  xs:w-[100px]  snap-center lg:w-[150px] 2xl:w-[150px] lg:h-[525px]"
+  xs:w-[100px] m-4 snap-center lg:w-[150px] 2xl:w-[150px] lg:h-[525px]"
           >
             <Image
               className="snap-center object-cover"
@@ -45,7 +45,6 @@ export const ProductArray = (props: any) => {
               src={doc.canFrontImage.url}
             />
           </div>
-          <h3 className="justify-self-end h-[72px] font-bold text-base text-center">{doc.title}</h3>
         </div>
       )
     })
