@@ -18,8 +18,8 @@ interface HeaderClientProps {
 const Contact = (props: any) => {
   return (
     <dialog
-      className="bg-opacity-75 top-0 bottom-0 left-0 right-0 fixed
-  w-full h-full flex flex-col place-items-center"
+      className="bg-opacity-75 right-0 left-0 top-0 bottom-0 m-auto fixed
+  w-full h-full flex flex-col place-items-center z-0"
     >
       <Message />
     </dialog>
@@ -59,7 +59,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }
 
   return (
-    <header className="container h-38 xl:h-45 2xl:h-48 relative z-20">
+    <header className="container h-38 xl:h-45 2xl:h-48 relative z-0 2xl:mb-8">
       <div className="py-8 flex flex-row lg:justify-start lg:gap-4 justify-between">
         <Link className="w-1/2 lg:w-1/4" href="/">
           <img
@@ -87,22 +87,12 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <Link href="/#about">About Us</Link>
           <Link href="/#variety">Variety</Link>
           <Link href="/#where-to-buy">Where To Buy</Link>
+          <button onClick={() => toggleDialog(dialogIsOpen)}>Contact</button>
         </nav>
-        <div
-          className="relative hidden lg:block lg:h-[80px] lg:w-[150px]
-    xl:h-[100px] xl:w-[200px] 2xl:h-[125px] 2xl:w-[225px]"
-        >
-          <Image
-            alt="Finest Ingredients"
-            className="object-cover"
-            fill
-            src="/api/media/file/Finest_Ingredients.svg"
-          />
-        </div>
       </div>
       <div
         className="hidden lg:block absolute right-0 top-0 m-auto
-    overflow-visible mt-4 lg:h-[150px] lg:w-[250px] xl:h-[175px] xl:w-[285px] 2xl:h-[250px] 2xl:w-[400px]"
+    overflow-visible mt-4 lg:h-[175px] lg:w-[285px] xl:h-[225px] xl:w-[370px] 2xl:h-[260px] 2xl:w-[425px]"
       >
         <Image
           className="object-cover overflow-visible"

@@ -32,11 +32,11 @@ export default function Message(props: any) {
 
   return (
     <div
-      className="w-full p-4 h-full fixed m-auto bg-white flex gap-4
-    flex-col"
+      className="w-full lg:container p-4 h-full fixed m-auto
+    flex gap-4 flex-col z-0"
     >
       <button
-        className="self-end bg-[#9f9067] w-1/3 rounded-xl text-xl"
+        className="self-end bg-[#9f9067] w-1/3 lg:w-32 lg:h-8 rounded-xl text-xl"
         onClick={() => toggleDialog(dialogIsOpen)}
       >
         Back

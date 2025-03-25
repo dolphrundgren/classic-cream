@@ -27,7 +27,7 @@ export default async function Page({ params }: Args) {
   const { products, pages } = await retrieveData()
   return (
     <>
-      <PageClient id="about" pages={pages} />
+      <PageClient className="z-90" id="about" pages={pages} />
       <ProductClient id="variety" products={products} />
       <article
         id="where-to-buy"
@@ -71,7 +71,12 @@ export default async function Page({ params }: Args) {
           <img alt="Follow Us!" width="full" height="auto" src="/api/media/file/Follow%20Us.svg" />
           <div className="w-full flex flex-row justify-between">
             <a className="w-1/2 h-full" href="https://www.instagram.com/classiccreamofficial_/">
-              <img alt="Instagram Icon" width="90%" h="auto" src="/api/media/file/IG_logo.svg" />
+              <img
+                alt="Instagram Icon"
+                width="90%"
+                height="auto"
+                src="/api/media/file/IG_logo.svg"
+              />
             </a>
             <a
               className="w-1/2 h-full"
@@ -80,7 +85,7 @@ export default async function Page({ params }: Args) {
               <img
                 alt="Facebook Icon"
                 width="90%"
-                h="auto"
+                height="auto"
                 src="/api/media/file/facebook_logo.svg"
               />
             </a>

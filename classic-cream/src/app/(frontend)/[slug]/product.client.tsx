@@ -1,11 +1,13 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { SvgArrow } from '@/components/ScrollButton/index'
 import { ProductArray } from '@/components/ProductArray/index'
 import { ProductFocusInterface, ProductFocus } from '@/components/ProductFocus/index'
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import { DialogContext } from '@/providers/Dialog'
 
 const ProductClient = (props: any) => {
+  const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
@@ -15,6 +17,7 @@ const ProductClient = (props: any) => {
   })
   const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
   const fetchURL = `${baseURL}/api/products/`
+  const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'invisible' : 'bg-white'}`
 
   const toggleProductFocus = (toggleValue: ProductFocusInterface) => {
     setProductFocus(toggleValue)
@@ -36,7 +39,7 @@ const ProductClient = (props: any) => {
   if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
-      <article id="variety" className="scroll-smooth bg-white overflow-x-hidden w-full">
+      <article id="variety" className={dialogMod}>
         <div
           onClick={productFocus.active ? () => toggleProductFocus({ active: false }) : () => null}
           className="container flex flex-col relative place-items-center overflow-x-hidden"
@@ -66,7 +69,11 @@ const ProductClient = (props: any) => {
               />
               <div
                 className={`${
-                  productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                  dialogIsOpen
+                    ? 'invisible'
+                    : productFocus.active
+                      ? 'opacity-0 pointer-events-none'
+                      : 'opacity-100'
                 } xs:w-[1500px] h-full z-0 duration-200 ease-in-out absolute  m-auto flex
   flex-row  snap-x snap-mandatory gap-8 3xl:gap-32 pl-8 pr-8
   overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}

@@ -16,10 +16,11 @@ const PageClient = (props: any) => {
   const contentFocus = pageData.layout[1].media.sizes.medium.url
   const dairyBadge = pageData.layout[2].media.url
   const premiumBadge = pageData.layout[3].media.url
+  const dialogMod = `w-full h-auto ${dialogIsOpen ? 'invisible' : 'bg-[#cccccc]'}`
   return (
-    <div className="w-full h-auto bg-[#cccccc]">
+    <div className={dialogMod}>
       <div
-        className="h-[115px] z-0 -mt-[18px] md:-mt-[15px] lg:-mt-[10px] 2xl:-mt-[12px] w-full
+        className="h-[115px] z-10 -mt-[18px] md:-mt-[15px] lg:-mt-[10px] 2xl:-mt-[12px] w-full
   bg-[length:auto_115px] lg:bg-[length:auto_70px] 2xl:bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/Black_Ribbon-1.svg)]"
       ></div>
@@ -48,7 +49,7 @@ const PageClient = (props: any) => {
           </div>
           <div
             className="overflow-y-visible -ml-[200px] -mt-[45px]
-  hidden xl:block lg:w-[200px] lg:h-[200px] relative self-start z-30"
+  hidden xl:block lg:w-[200px] lg:h-[200px] relative self-start z-20"
           >
             <Image className="object-cover overflow-y-visible" fill alt="badge" src={dairyBadge} />
           </div>
@@ -95,7 +96,7 @@ const PageClient = (props: any) => {
         </div>
       </div>
       <div
-        className="h-[115px] z-0 -mb-[24px] w-full bg-[length:auto_110px]
+        className="h-[115px] z-10 -mb-[24px] w-full bg-[length:auto_110px]
     bg-repeat-x bg-[url(/api/media/file/White_Ribbon-1.svg)]"
       ></div>
     </div>
