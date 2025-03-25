@@ -47,8 +47,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   useEffect(() => {
     if (dialogIsOpen) {
       document.body.classList.add('overflow-y-hidden')
+      document.body.style.height = '100vh'
     } else {
       document.body.classList.remove('overflow-y-hidden')
+      document.body.style.height = '100vh'
     }
   }, [dialogIsOpen])
 
