@@ -32,8 +32,8 @@ export default function Message(props: any) {
 
   return (
     <div
-      className="w-full lg:container p-4 h-full fixed m-auto
-    flex gap-4 flex-col z-0"
+      className="w-full h-full lg:container p-4 lg:h-auto fixed m-auto
+    flex gap-4 flex-col z-0 bg-white justify-start rounded-xl lg:p-8"
     >
       <button
         className="self-end bg-[#9f9067] w-1/3 lg:w-32 lg:h-8 rounded-xl text-xl"

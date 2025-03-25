@@ -18,8 +18,9 @@ interface HeaderClientProps {
 const Contact = (props: any) => {
   return (
     <dialog
-      className="bg-opacity-75 right-0 left-0 top-0 bottom-0 m-auto fixed
-  w-full h-full flex flex-col place-items-center z-0"
+      className="right-0 left-0 top-0 bottom-0 m-auto fixed
+  w-full h-full flex flex-col justify-center items-center z-0
+   bg-[#cccccc]"
     >
       <Message />
     </dialog>
