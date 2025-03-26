@@ -88,7 +88,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <path d="M 10 35 H 50 V 40 H 10 L 10 40" />
         </svg>
         <nav
-          className="hidden lg:flex flex-row self-center gap-4
+          className="hidden lg:flex flex-row self-center gap-8
     lg:text-xl xl:text-2xl font-bold"
         >
           <Link href="/#about">About Us</Link>
