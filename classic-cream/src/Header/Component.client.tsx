@@ -31,9 +31,15 @@ const MobileNav = (props: any) => {
   const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   return (
     <nav className="h-64 w-full flex flex-col gap-4 text-xl justify-start items-center">
-      <Link href="About">About Us</Link>
-      <Link href="Products">Variety</Link>
-      <Link href="Purchase">Where To Buy</Link>
+      <Link onClick={() => props.toggleMenu(props.menuIsOpen)} href="/#about">
+        About Us
+      </Link>
+      <Link onClick={() => props.toggleMenu(props.menuIsOpen)} href="/#variety">
+        Variety
+      </Link>
+      <Link onClick={() => props.toggleMenu(props.menuIsOpen)} href="/#where-to-buy">
+        Where To Buy
+      </Link>
       <button onClick={() => toggleDialog(dialogIsOpen)}>Contact</button>
     </nav>
   )
@@ -108,7 +114,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       >
         <SocialArray size="small" />
       </div>
-      {menuIsOpen ? <MobileNav /> : null}
+      {menuIsOpen ? <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} /> : null}
       {dialogIsOpen ? <Contact /> : null}
     </header>
   )

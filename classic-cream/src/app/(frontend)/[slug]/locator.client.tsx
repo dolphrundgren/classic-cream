@@ -10,7 +10,7 @@ const StoreLocatorClient = (props: any) => {
 
   return (
     <>
-      <article className={dialogMod}>
+      <article id="where-to-buy" className={dialogMod}>
         <div className="h-[90px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Down.svg)]"></div>
         <div className="container  lg:mt-16">
           <img

@@ -28,9 +28,9 @@ export default async function Page({ params }: Args) {
   const { products, pages } = await retrieveData()
   return (
     <>
-      <PageClient className="z-90" id="about" pages={pages} />
-      <ProductClient id="variety" products={products} />
-      <StoreLocatorClient id="where-to-buy" />
+      <PageClient pages={pages} />
+      <ProductClient products={products} />
+      <StoreLocatorClient />
     </>
   )
 }
