@@ -30,7 +30,7 @@ const Contact = (props: any) => {
 const MobileNav = (props: any) => {
   const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   return (
-    <nav className="h-64 w-full flex flex-col gap-4 text-xl justify-start items-center">
+    <nav className="h-64 w-full flex flex-col gap-4 text-xl md:text-3xl justify-start items-center">
       <Link onClick={() => props.toggleMenu(props.menuIsOpen)} href="/#about">
         About Us
       </Link>
