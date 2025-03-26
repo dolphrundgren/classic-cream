@@ -25,7 +25,7 @@ const PageClient = (props: any) => {
     bg-repeat-x bg-[url(/api/media/file/Black_Ribbon-1.svg)]"
       ></div>
       <div
-        className="mt-4 md:mt-8 lg:mt-10 xl:mt-15 container
+        className="mt-8 lg:mt-10 xl:mt-15 container
   self-center flex flex-col lg:flex-row items-center justify-between
   xs:h-[475px] h-[450px] md:h-[550px] lg:h-[700px] xl:h-[600px]
   2xl:h-[635px]   mb-[70px] "
