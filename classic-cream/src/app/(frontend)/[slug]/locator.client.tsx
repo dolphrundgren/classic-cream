@@ -6,12 +6,12 @@ import { DialogContext } from '@/providers/Dialog'
 const StoreLocatorClient = (props: any) => {
   const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   const dialogMod = `h-auto flex flex-col justify-start gap-8 lg:gap-16  ${dialogIsOpen ? 'hidden' : 'bg-[#9f9067]'}`
-  const dialog2Mod = `container h-[300px] lg:h-[500px] 2xl:h-[600px] flex flex-row md:justify-between justify-center ${dialogIsOpen ? 'hidden' : null}`
+  const dialog2Mod = `z-0 container h-[300px] lg:h-[500px] 2xl:h-[600px] flex flex-row md:justify-between justify-center ${dialogIsOpen ? 'hidden' : null}`
 
   return (
     <>
       <article id="where-to-buy" className={dialogMod}>
-        <div className="h-[90px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Down.svg)]"></div>
+        <div className="-mt-1 h-[75px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Down.svg)] justify-self-start"></div>
         <div className="container  lg:mt-16">
           <img
             alt="Find Some Classic Cream Near You"
@@ -29,7 +29,7 @@ const StoreLocatorClient = (props: any) => {
           client-id="classiccream"
           className="container h-auto z-0 mb-8 rounded-2xl overflow-hidden"
         />
-        <div className="h-[75px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Up.svg)] justify-self-end"></div>
+        <div className="-mb-1 h-[75px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Up.svg)] justify-self-end"></div>
       </article>
       <div className={dialog2Mod}>
         <div className="hidden md:block z-40 md:w-3/4 h-auto flex-row self-end -ml-64 -mb-32">
