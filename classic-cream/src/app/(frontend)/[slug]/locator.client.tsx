@@ -66,6 +66,7 @@ const StoreLocatorClient = (props: any) => {
               />
             </a>
           </div>
+          <div className="-mb-1 h-[75px] z-10 w-full bg-[length:auto_75px] bg-repeat-x bg-[url(/api/media/file/White_Border_Up.svg)] justify-self-end"></div>
         </div>
       </div>
     </>
