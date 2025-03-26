@@ -53,8 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@payloadcms',
-  },
+  title: 'Classic Cream | Premium Ingredients, Whipped to Perfection',
+  description:
+    'Our formulas are made to satisfy the every type of sweet-tooth. Try our delicious lactose-free, chocolate, and strawberry light whipped creams.',
 }
