@@ -18,7 +18,7 @@ import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
-import { getServerSideURL } from './utilities/getURL'
+import { getClientSideURL, getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -68,8 +68,8 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
-  csrf: ['*', 'https://classic-cream.vercel.app'],
-  cors: '*',
+  csrf: [getServerSideURL(), getClientSideURL()].filter(Boolean),
+  cors: [getServerSideURL(), getClientSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
     ...plugins,
