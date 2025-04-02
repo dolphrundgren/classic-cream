@@ -68,7 +68,7 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
-  csrf: ['*'],
+  csrf: ['*', 'https://classic-cream.vercel.app'],
   cors: '*',
   globals: [Header, Footer],
   plugins: [
