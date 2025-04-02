@@ -68,6 +68,7 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
+  csrf: '*',
   cors: '*',
   globals: [Header, Footer],
   plugins: [
