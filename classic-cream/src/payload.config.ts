@@ -68,9 +68,7 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
-  cors: {
-    origins: [getServerSideURL(), 'https://classic-cream.vercel.app'].filter(Boolean),
-  },
+  cors: '*',
   globals: [Header, Footer],
   plugins: [
     ...plugins,
