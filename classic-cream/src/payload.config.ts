@@ -68,8 +68,8 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Products, Subscriptions, Messages],
-  csrf: [getServerSideURL(), getClientSideURL()].filter(Boolean),
-  cors: [getServerSideURL(), getClientSideURL()].filter(Boolean),
+  csrf: [getServerSideURL(), getClientSideURL(), 'classic-cream.vercel.app/*'].filter(Boolean),
+  cors: [getServerSideURL(), getClientSideURL(), 'classic-cream.vercel.app/*'].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
     ...plugins,
