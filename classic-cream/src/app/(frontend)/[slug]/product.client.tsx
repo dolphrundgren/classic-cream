@@ -51,11 +51,11 @@ const ProductClient = (props: any) => {
             height-auto
             src="/api/media/file/Whipped_Cream_Thing.svg"
           />
-          <div className="container h-auto flex flex-row">
-            <div className="hidden self-center -ml-16 lg:block ">
+          <div className="container h-auto flex flex-row justify-center">
+            <div className="hidden self-center lg:block ">
               <SvgArrow isRight={false} />
             </div>
-            <div className="h-auto flex flex-row">
+            <div className="h-auto w-max-[100%] gap-4 flex flex-row overflow-x-scroll">
               <ProductArray
                 productFocus={productFocus}
                 toggleProductFocus={toggleProductFocus}
@@ -63,7 +63,7 @@ const ProductClient = (props: any) => {
                 windowWidth={windowWidth}
               />
             </div>
-            <div className="hidden self-center -mr:16 lg:block">
+            <div className="hidden self-center lg:block">
               <SvgArrow isRight={true} />
             </div>
           </div>
