@@ -51,36 +51,17 @@ const ProductClient = (props: any) => {
             height-auto
             src="/api/media/file/Whipped_Cream_Thing.svg"
           />
-          <div className="container flex flex-row">
+          <div className="container h-auto flex flex-row">
             <div className="hidden self-center -ml-16 lg:block ">
               <SvgArrow isRight={false} />
             </div>
-            <div
-              className={`${productFocus.active ? 'overflow-clip' : '  overflow-x-scroll'} no-scrollbar
-  box-border relative  mb-8 xs:h-[500px] h-[575px] lg:h-[600px]
-  2xl:h-[675px] grow`}
-            >
-              <ProductFocus
-                className={`${
-                  productFocus.active ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                } duration-200 ease-in-out absolute top-0 right-0 left-0 bottom-0 m-auto`}
-                toggleProductFocus={toggleProductFocus}
+            <div className="h-auto flex flex-row">
+              <ProductArray
                 productFocus={productFocus}
+                toggleProductFocus={toggleProductFocus}
+                products={props.products}
+                windowWidth={windowWidth}
               />
-              <div
-                className={`${
-                  productFocus.active ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                } xs:w-[1500px] h-full z-0 duration-200 ease-in-out absolute  m-auto flex
-  flex-row  snap-x snap-mandatory gap-8 3xl:gap-32 pl-8 pr-8
-  overflow-x-scroll no-scrollbar items-center justify-start 2xl:justify-center`}
-              >
-                <ProductArray
-                  productFocus={productFocus}
-                  toggleProductFocus={toggleProductFocus}
-                  products={props.products}
-                  windowWidth={windowWidth}
-                />
-              </div>
             </div>
             <div className="hidden self-center -mr:16 lg:block">
               <SvgArrow isRight={true} />
