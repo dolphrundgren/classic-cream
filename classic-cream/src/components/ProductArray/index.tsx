@@ -32,8 +32,7 @@ export const ProductArray = (props: any) => {
           onClick={
             props.productFocus.active ? () => null : () => props.toggleProductFocus(productJSON)
           }
-          className=" md:h-[50vh] md:min-w-[48%] h-[75vh]
-  min-w-[32%] flex flex-row justify-center rounded-xl bg-[#cccccc]"
+          className=" xs:h-[500px] h-[575px] lg:h-[600px] xl:h-[650px] min-w-[87%] md:min-w-[32%] flex flex-row justify-center rounded-xl bg-[#cccccc]"
         >
           <img
             className="max-h-[100%]"
