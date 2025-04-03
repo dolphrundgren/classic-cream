@@ -59,7 +59,7 @@ const ProductClient = (props: any) => {
               <SvgArrow isRight={false} />
             </div>
             <div
-              className={`${productFocus.active ? 'hidden' : 'flex'} h-auto w-max-[100%] gap-3 xl:gap-4 flex-row overflow-x-scroll`}
+              className={`${productFocus.active ? 'hidden' : 'flex'} h-auto w-max-[100%] gap-3 xl:gap-4 flex-row overflow-x-scroll no-scrollbar`}
             >
               <ProductArray
                 productFocus={productFocus}
