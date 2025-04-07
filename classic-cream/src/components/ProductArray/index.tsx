@@ -9,7 +9,6 @@ export const ProductArray = (props: any) => {
   } else {
     const productCount = props.products.docs.length
     const productArray = props.products.docs.map(function (doc: any, index: number) {
-      console.log(doc)
       const productJSON = {
         active: true,
         title: doc.title,

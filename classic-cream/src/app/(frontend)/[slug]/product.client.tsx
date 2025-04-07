@@ -6,6 +6,13 @@ import { ProductFocusInterface, ProductFocus } from '@/components/ProductFocus/i
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { DialogContext } from '@/providers/Dialog'
 
+interface ScrollPositionInterface {
+  currentPosition: number
+  maxPosition: number | boolean
+  rightPosition: number | boolean
+  leftPosition: number | boolean
+}
+
 const ProductClient = (props: any) => {
   const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
   const [loading, setLoading] = useState(true)
@@ -14,7 +21,13 @@ const ProductClient = (props: any) => {
     active: false,
     title: '',
   })
-  const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
+  const [scrollIndex, setScrollIndex] = useState<ScrollPositionInterface>({
+    current: 0,
+    max: false,
+    right: 1,
+    left: false,
+  })
+
   const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'hidden' : 'bg-white'}`
 
   const toggleProductFocus = (toggleValue: ProductFocusInterface) => {
@@ -24,6 +37,31 @@ const ProductClient = (props: any) => {
   useEffect(() => {
     setWindowWidth(window.innerWidth)
   }, [])
+
+  useEffect(() => {
+    setScrollIndex((prevState) => ({
+      ...prevState,
+      max: props.products.docs.length,
+    }))
+  }, [props.products])
+
+  function updateScrollIndex(isRight: boolean) {
+    if (isRight && scrollIndex.right < scrollIndex.max) {
+      setScrollIndex((prevState) => ({
+        ...prevState,
+        current: prevState.right,
+        right: prevState.right + 1,
+        left: prevState.current,
+      }))
+    } else if (!isRight && scrollIndex.current != 0) {
+      setScrollIndex((prevState) => ({
+        ...prevState,
+        current: prevState.left,
+        right: prevState.current,
+        left: prevState.left ? prevState.left - 1 : false,
+      }))
+    }
+  }
 
   if (windowWidth) {
     return (
@@ -44,7 +82,11 @@ const ProductClient = (props: any) => {
             <div
               className={`${productFocus.active ? 'lg:hidden' : 'block'} hidden self-center lg:block`}
             >
-              <SvgArrow isRight={false} />
+              <SvgArrow
+                isRight={false}
+                updateScrollIndex={updateScrollIndex}
+                scrollIndex={scrollIndex}
+              />
             </div>
             <div
               className={`${productFocus.active ? 'hidden' : 'flex'} h-auto w-max-[100%] gap-3 xl:gap-4 flex-row overflow-x-scroll no-scrollbar`}
@@ -59,10 +101,15 @@ const ProductClient = (props: any) => {
             <div
               className={`${productFocus.active ? 'lg:hidden' : 'block'} hidden self-center lg:block`}
             >
-              <SvgArrow isRight={true} />
+              <SvgArrow
+                isRight={true}
+                updateScrollIndex={updateScrollIndex}
+                scrollIndex={scrollIndex}
+              />
             </div>
           </div>
         </div>
+        <button onClick={() => console.log(scrollIndex)}>ScrollIndex</button>
       </article>
     )
   }
