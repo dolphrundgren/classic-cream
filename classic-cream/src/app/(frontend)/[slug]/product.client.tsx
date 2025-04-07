@@ -8,7 +8,6 @@ import { DialogContext } from '@/providers/Dialog'
 
 const ProductClient = (props: any) => {
   const { dialogIsOpen, toggleDialog } = useContext(DialogContext)
-  const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
   const [productFocus, setProductFocus] = useState<ProductFocusInterface>({
@@ -16,7 +15,6 @@ const ProductClient = (props: any) => {
     title: '',
   })
   const baseURL = process.env.NEXT_PUBLIC_SERVER_URL
-  const fetchURL = `${baseURL}/api/products/`
   const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'hidden' : 'bg-white'}`
 
   const toggleProductFocus = (toggleValue: ProductFocusInterface) => {
@@ -24,19 +22,9 @@ const ProductClient = (props: any) => {
   }
 
   useEffect(() => {
-    getProducts()
     setWindowWidth(window.innerWidth)
   }, [])
 
-  const getProducts = () =>
-    fetch(fetchURL)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data)
-        setLoading(false)
-      })
-
-  if (loading) return <h1>Loading</h1>
   if (windowWidth) {
     return (
       <article id="variety" className={dialogMod}>
