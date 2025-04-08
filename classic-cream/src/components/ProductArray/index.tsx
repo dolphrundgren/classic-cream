@@ -3,17 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SvgArrow } from '@/components/ScrollButton/index'
 
-const compareNumbers = (a, b) => {
-  return a - b
-}
-
 export const ProductArray = (props: any) => {
   if (!props.products) {
     return null
   } else {
     const productCount = props.products.docs.length
     const productArray = props.products.docs
-    productArray.sort((a, b) => a.arrayPosition - b.arrayPosition)
+    productArray.sort((a: any, b: any) => a.arrayPosition - b.arrayPosition)
     const finalArray = productArray.map(function (doc: any, index: number) {
       const productJSON = {
         active: true,
