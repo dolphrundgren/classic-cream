@@ -2,24 +2,30 @@
 
 import React from 'react'
 
-const scrollToElement = (id: string) => {
+const scrollToElement = (id: string, isRight: boolean, updateScrollIndex: any) => {
   const element = document.getElementById(id)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
   }
+  updateScrollIndex(isRight)
 }
 
 interface SvgArrowValue {
   isRight: boolean
+  updateScrollIndex: any
+  scrollIndex: any
 }
 
 export const SvgArrow = (props: SvgArrowValue) => {
   const rightArrow = 'M 17 10 L 37 25 L 17 40 L 17 36 L 33 25 L 17 14'
   const leftArrow = 'M 33 10 L 13 25 L 33 40 L 33 36 L 17 25 L 33 14'
   const svgPath = props.isRight ? rightArrow : leftArrow
-  const targetId = props.isRight ? 'Strawberry Whipped Light Cream' : 'Whipped Heavy Cream'
+  const targetId = props.isRight ? 'Strawberry Whipped Light Cream' : 'Gold Whipped Light Cream'
   return (
-    <div onClick={() => scrollToElement(targetId)} className="w-24  h-24 relative">
+    <div
+      onClick={() => scrollToElement(targetId, props.isRight, props.updateScrollIndex)}
+      className="w-24  h-24 relative"
+    >
       <svg
         className="z-80 absolute top-0 right-0 left-0 bottom-0 m-auto"
         width="80"

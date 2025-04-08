@@ -66,6 +66,7 @@ const Products: CollectionConfig = {
       relationTo: 'media',
       required: false,
     },
+    { name: 'arrayPosition', label: 'Array Position', type: 'number', required: false },
   ],
 }
 

@@ -8,8 +8,9 @@ export const ProductArray = (props: any) => {
     return null
   } else {
     const productCount = props.products.docs.length
-    const productArray = props.products.docs.map(function (doc: any, index: number) {
-      console.log(doc)
+    const productArray = props.products.docs
+    productArray.sort((a: any, b: any) => a.arrayPosition - b.arrayPosition)
+    const finalArray = productArray.map(function (doc: any, index: number) {
       const productJSON = {
         active: true,
         title: doc.title,
@@ -43,6 +44,6 @@ export const ProductArray = (props: any) => {
         </div>
       )
     })
-    return productArray
+    return finalArray
   }
 }
