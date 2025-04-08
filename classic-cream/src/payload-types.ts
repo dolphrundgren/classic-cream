@@ -760,6 +760,7 @@ export interface Product {
   nutritionFactImage: number | Media;
   canFrontImage: number | Media;
   foodImage?: (number | null) | Media;
+  arrayPosition?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1363,6 +1364,7 @@ export interface ProductsSelect<T extends boolean = true> {
   nutritionFactImage?: T;
   canFrontImage?: T;
   foodImage?: T;
+  arrayPosition?: T;
   updatedAt?: T;
   createdAt?: T;
 }

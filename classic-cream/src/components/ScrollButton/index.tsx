@@ -20,7 +20,7 @@ export const SvgArrow = (props: SvgArrowValue) => {
   const rightArrow = 'M 17 10 L 37 25 L 17 40 L 17 36 L 33 25 L 17 14'
   const leftArrow = 'M 33 10 L 13 25 L 33 40 L 33 36 L 17 25 L 33 14'
   const svgPath = props.isRight ? rightArrow : leftArrow
-  const targetId = props.isRight ? 'Strawberry Whipped Light Cream' : 'Whipped Heavy Cream'
+  const targetId = props.isRight ? 'Strawberry Whipped Light Cream' : 'Gold Whipped Light Cream'
   return (
     <div
       onClick={() => scrollToElement(targetId, props.isRight, props.updateScrollIndex)}

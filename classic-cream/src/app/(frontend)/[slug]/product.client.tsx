@@ -7,10 +7,10 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import { DialogContext } from '@/providers/Dialog'
 
 interface ScrollPositionInterface {
-  currentPosition: number
-  maxPosition: number | boolean
-  rightPosition: number | boolean
-  leftPosition: number | boolean
+  current: number
+  max: number
+  right: number
+  left: number
 }
 
 const ProductClient = (props: any) => {
@@ -23,9 +23,9 @@ const ProductClient = (props: any) => {
   })
   const [scrollIndex, setScrollIndex] = useState<ScrollPositionInterface>({
     current: 0,
-    max: false,
+    max: 0,
     right: 1,
-    left: false,
+    left: -1,
   })
 
   const dialogMod = `w-full bg-white overflow-x-hidden ${dialogIsOpen ? 'hidden' : 'bg-white'}`
@@ -58,7 +58,7 @@ const ProductClient = (props: any) => {
         ...prevState,
         current: prevState.left,
         right: prevState.current,
-        left: prevState.left ? prevState.left - 1 : false,
+        left: prevState.left ? prevState.left - 1 : -1,
       }))
     }
   }
@@ -109,7 +109,6 @@ const ProductClient = (props: any) => {
             </div>
           </div>
         </div>
-        <button onClick={() => console.log(scrollIndex)}>ScrollIndex</button>
       </article>
     )
   }
