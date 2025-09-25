@@ -33,66 +33,14 @@ const PageClient = (props: any) => {
         <div
           className="flex flex-row items-center lg:justify-start
   justify-center rounded-3xl h-full w-full   bg-[#ffffff] relative
-  lg:overflow-y-visible gap-4 "
+  lg:overflow-y-visible gap-4 overflow-hidden"
         >
-          <div
-            className="hidden xl:block overflow-y-visible relative
-  -mb-[50px] 
-  xl:h-[590px] xl:w-[400px] 2xl:h-[650px] 2xl:w-[440px] self-end z-40"
-          >
-            <Image
-              className="object-cover overflow-y-visible"
-              fill
-              alt="Pancakes"
-              src={contentFocus}
-            />
-          </div>
-          <div
-            className="overflow-y-visible -ml-[200px] -mt-[45px]
-  hidden xl:block lg:w-[200px] lg:h-[200px] relative self-start z-20"
-          >
-            <Image className="object-cover overflow-y-visible" fill alt="badge" src={dairyBadge} />
-          </div>
-          <div className="relative lg:ml-16 2xl:ml-0 flex flex-col w-[500px] h-full overflow-visible">
-            <div
-              className="h-[35px] w-[200px] md:h-[55px] md:w-[300px] lg:w-[450px] lg:h-[85px] relative
-  self-center justify-self-start  -mt-[15px] lg:-mt-[32px] lg:mb-[55px]"
-            >
-              <Image
-                className="object-cover"
-                fill
-                alt="Premium
-  Quality"
-                src={premiumBadge}
-              />
-            </div>
-            <RichText
-              className="ml-4 mt-4 lg:mt-0 lg:ml-0 text-[0.89rem] md:text-lg lg:text-2xl xl:text-xl"
-              data={contentRichText}
-            />
-            <div
-              className="absolute bottom-0 right-0 left-0 m-auto
-  -mb-[50px] md:-mb-[75px] block lg:hidden overflow-visible h-[175px]
-  xs:w-[285px] w-[275px]
-  md:h-[240px] md:w-[400px]"
-            >
-              <Image
-                className="object-cover"
-                fill
-                alt="Brownies with a
-    dollop"
-                src="/api/media/file/Pumpkin_Spice_usage1.png"
-              />
-            </div>
-          </div>
-          <div className="hidden lg:grow lg:flex flex-row place-content-end">
-            <div
-              className="relative lg:h-[585px] lg:w-[325px]
-  xl:h-[500px] xl:w-[275px] 2xl:h-[565px] 2xl:w-[315px] "
-            >
-              <Image className="object-cover" fill alt="Hero Image" src={heroImage} />
-            </div>
-          </div>
+          <img
+            alt="alt stuff"
+            width="full"
+            height-auto
+            src="https://res.cloudinary.com/alamancefoods/image/upload/v1758822178/ClassicCream/Wicked/wicked_desktop_hero.jpg"
+          />
         </div>
       </div>
       <div
