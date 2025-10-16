@@ -30,10 +30,7 @@ const PageClient = (props: any) => {
   h-auto mb-[70px] overflow-hidden rounded-xl"
       >
         <a href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/">
-          <h1
-            href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/"
-            className="xs:text-xl text-2xl md:text-5xl lg:text-6xl text-[#016b27] p-8 font-bold overflow-visible"
-          >
+          <h1 className="xs:text-xl text-2xl md:text-5xl lg:text-6xl text-[#016b27] p-8 font-bold overflow-visible">
             Try Classic Cream Wicked!
           </h1>
         </a>
