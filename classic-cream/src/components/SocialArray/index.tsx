@@ -14,9 +14,12 @@ export const SocialArray = (props: any) => {
           src="/api/media/file/facebook_logo.svg"
         />
       </a>
-      <a href="https://www.instagram.com/classiccreamofficial_/" className={iconStyle}>
+      <a
+        href="https://www.instagram.com/classiccreamofficial/?__d=1%2F%3Fhidemenu%3Dtrue"
+        className={iconStyle}
+      >
         <Image
-          alt="Facebook Logo"
+          alt="Instagram Logo"
           className="object-cover"
           fill
           src="/api/media/file/IG_logo.svg"
