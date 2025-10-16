@@ -26,22 +26,30 @@ const PageClient = (props: any) => {
       ></div>
       <div
         className="mt-8 lg:mt-10 xl:mt-15 container
-  self-center flex flex-col lg:flex-row items-center justify-between
-  xs:h-[475px] h-[450px] md:h-[550px] lg:h-[700px] xl:h-[600px]
-  2xl:h-[635px]   mb-[70px] "
+  self-center flex flex-col items-center justify-center
+  h-auto mb-[70px] overflow-hidden rounded-xl"
       >
-        <div
-          className="flex flex-row items-center lg:justify-start
-  justify-center rounded-3xl h-full w-full   bg-[#ffffff] relative
-  lg:overflow-y-visible gap-4 overflow-hidden"
-        >
+        <a href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/">
+          <h1
+            href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/"
+            className="xs:text-xl text-2xl md:text-5xl lg:text-6xl text-[#016b27] p-8 font-bold overflow-visible"
+          >
+            Try Classic Cream Wicked!
+          </h1>
+        </a>
+        <a href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/">
           <img
-            alt="alt stuff"
-            width="full"
-            height-auto
-            src="https://res.cloudinary.com/alamancefoods/image/upload/v1758822178/ClassicCream/Wicked/wicked_desktop_hero.jpg"
+            alt="portrait image"
+            className="object-cover rounded-xl lg:hidden block
+  overflow-hidden"
+            src="https://res.cloudinary.com/alamancefoods/image/upload/v1758906578/ClassicCream/Wicked/wicked_hero_portrait.jpg"
           />
-        </div>
+          <img
+            alt="large image"
+            className="object-cover rounded-xl lg:block hidden"
+            src="https://res.cloudinary.com/alamancefoods/image/upload/v1758916615/ClassicCream/Wicked/desktop_alt_hero.jpg"
+          />
+        </a>
       </div>
       <div
         className="h-[115px] z-10 -mb-[24px] w-full bg-[length:auto_110px]
