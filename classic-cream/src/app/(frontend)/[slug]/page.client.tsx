@@ -31,7 +31,7 @@ const PageClient = (props: any) => {
       >
         <a href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/">
           <h1 className="xs:text-xl text-2xl md:text-5xl lg:text-6xl text-[#016b27] p-8 font-bold overflow-visible">
-            Try Classic Cream Wicked!
+            Find us on Amazon!
           </h1>
         </a>
         <a href="https://www.amazon.com/Classic-Cream-Salted-Caramel-Whipped/dp/B0FPRZQBRS/">

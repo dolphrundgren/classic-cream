@@ -46,7 +46,7 @@ const StoreLocatorClient = (props: any) => {
         >
           <img alt="Follow Us!" width="full" height="auto" src="/api/media/file/Follow%20Us.svg" />
           <div className="w-full flex flex-row justify-between">
-            <a className="w-1/2 h-full" href="https://www.instagram.com/classiccreamofficial_/">
+            <a className="w-1/2 h-full" href="https://www.instagram.com/classiccreamofficial">
               <img
                 alt="Instagram Icon"
                 width="90%"
